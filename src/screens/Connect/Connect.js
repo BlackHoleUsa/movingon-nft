@@ -21,7 +21,7 @@ const Connect = (props) => {
 
     return(
 
-        <div className="app-flex-column w-100 h-100 position-relative bg-img-set">
+        <div className="app-flex-column w-100 h-100 position-relative bg-lightPrimary">
             
             <Topbar 
                 currentState={''} 

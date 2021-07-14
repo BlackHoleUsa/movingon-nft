@@ -32,11 +32,12 @@
     margin-top: 2px;
     transition: all .3s ease-in-out;
     background: none !important;
-    margin-right: 20px;
+    margin-right: 55px;
 }
 
 .active-link{
-    border-bottom: 2px solid var(--lightPurple);
+    border-bottom: 2px solid var(--blueShade);
+    border-radius: 1px;
 }
 
 .nav-links:nth-child(7){

@@ -9,13 +9,13 @@ const Sidebar = () => {
 
     return(
 
-        <div className="sidebar py-4">
+        <div className="sidebar py-4 text-white">
             
             <div className="mx-4 mb-3">
-                <img alt="" src={ Images.textLogo } />
+                Logo Here
             </div>
 
-            <span className="text-black mx-4 py-3">Menu</span>
+            <span className="mx-4 py-3">Menu</span>
 
             <div className="app-flex-column">
                 {

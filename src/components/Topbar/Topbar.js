@@ -19,11 +19,8 @@ const Topbar = (props) => {
     const data = [
         { id: 1, value: 'Home', sectionId: 'home-section' },
         { id: 2, value: 'About', sectionId: 'about-section' },
-        { id: 3, value: 'Team', sectionId: 'team-section' },
-        { id: 4, value: 'Token', sectionId: 'token-section' },
-        { id: 5, value: 'Roadmap', sectionId: 'roadmap-section' },
-        { id: 6, value: 'FAQs', sectionId: 'faq-section' },
-        { id: 7, value: 'Contact', sectionId: 'contact-section' }
+        { id: 3, value: 'History', sectionId: 'history-section' },
+        { id: 4, value: 'Features', sectionId: 'features-section' },
     ];
 
     useEffect(() => {
@@ -50,8 +47,8 @@ const Topbar = (props) => {
             ${ (scroll || showMenu) ? 'bg-grey' : '' }
         `}>
         
-            <NavLink to={`/${Routes.main}`}>
-                <img alt="" src={Images.textLogo} width="140px" />
+            <NavLink to={`/${Routes.main}`} className="text-black text-uppercase font-weight-bold">
+                Logo Here
             </NavLink>
         
             <Navbar.Toggle className={` ${scroll ? 'bg-lightPurple' : 'bg-whiteSmoke'} border-0`} 
@@ -71,7 +68,7 @@ const Topbar = (props) => {
                                 key={i}
                             >
                                 
-                                <span className={ (scroll || showMenu) ? 'text-black font-weight-bold' : 'text-black font-weight-bold' }>
+                                <span className={ (scroll || showMenu) ? 'text-black' : 'text-black' }>
                                     { link.value }
                                 </span>
 

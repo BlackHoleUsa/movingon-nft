@@ -10,7 +10,7 @@ import Dashboard from './screens/Dashboard/Dashboard';
 import Main from './screens/Main/Main';
 import Connect from "./screens/Connect/Connect";
 
-const Shajuanda = (props) => {
+const MovingOn = (props) => {
 
   const { history: { location } } = props;
 
@@ -33,4 +33,4 @@ const Shajuanda = (props) => {
 
 }
 
-export default withRouter(Shajuanda);
+export default withRouter(MovingOn);

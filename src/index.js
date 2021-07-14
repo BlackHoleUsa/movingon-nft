@@ -2,10 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './global.css';
-import Shajuanda from './App';
+import MovingOn from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { HashRouter as Router } from "react-router-dom";
+
+import './fonts/Montserrat-Black.ttf';
+import './fonts/Montserrat-Light.ttf';
+import './fonts/Montserrat-Medium.ttf';
+import './fonts/Montserrat-Regular.ttf';
+import './fonts/Montserrat-SemiBold.ttf';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss';
@@ -13,7 +19,7 @@ import './custom.scss';
 ReactDOM.render(
   <React.StrictMode>
       <Router>
-        <Shajuanda />
+        <MovingOn />
       </Router>
   </React.StrictMode>,
   document.getElementById('root')

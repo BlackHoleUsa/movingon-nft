@@ -19,7 +19,7 @@ const Dashboard = () => {
 
     return(
 
-        <div className="w-100 h-100 app-flex-row align-align-items-start justify-content-start bg-img-set">
+        <div className="w-100 h-100 app-flex-row align-align-items-start justify-content-start bg-lightPrimary">
             
             <Sidebar />
 
@@ -33,7 +33,7 @@ const Dashboard = () => {
                 <div className="w-75 bg-blue" style={{ height: '1px', opacity: .17 }}>
                 </div>
 
-                <div className="mx-0 mt-5 w-100 p-0 text-black" style={{ height: '80%', overflowY: 'auto' }}>
+                <div className="mx-0 mt-5 w-100 p-0 text-white" style={{ height: '80%', overflowY: 'auto' }}>
 
                     <div className="app-flex-row w-100 flex-wrap align-items-center justify-content-between">
                     {

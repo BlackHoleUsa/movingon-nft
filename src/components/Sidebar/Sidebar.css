@@ -1,8 +1,8 @@
 .sidebar{
     width: 400px;
     height: 100%;
-    background: var(--primary);
-    color: var(--black);
+    background: var(--blueShade);
+    color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -30,7 +30,7 @@
     position: relative;
     opacity: 1;
     transition: all .5s;
-    background: var(--secondary);
+    background: var(--lightPrimary);
     color: var(--black);
     font-weight: 600;
 }

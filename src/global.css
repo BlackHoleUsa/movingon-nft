@@ -30,12 +30,6 @@
   font-size: 14px !important;
 }
 
-.bg-img-set{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url('Assets/images/bg-dashboard.png');
-}
-
 .app-flex-row {
     display: flex;
     flex-direction: row;
@@ -55,7 +49,7 @@
   }
 
   .gradient-apply{
-    background: var(--lightPurple) !important;
+    background: var(--blueShade) !important;
     color: var(--white) !important;
     opacity: 1;
     display: flex;
