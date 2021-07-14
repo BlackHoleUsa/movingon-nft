@@ -1,0 +1,16 @@
+.main-container{
+    padding: 150px 120px 5px 120px !important;
+    transition: all .4s ease-in-out;    
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .main-container{
+        padding: 150px 15px 5px 30px !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .main-container{
+        padding: 150px 20px 5px 20px !important;
+    }
+}

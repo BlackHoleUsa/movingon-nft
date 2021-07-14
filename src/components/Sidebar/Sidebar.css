@@ -1,0 +1,36 @@
+.sidebar{
+    width: 400px;
+    height: 100%;
+    background: var(--primary);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+/* sidebar item css */
+.nav-item{
+    color: var(--black);
+    line-height: 10px;
+    padding-bottom: 0px;
+    opacity: .8;
+    position: relative;
+    transition: all .4s;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.nav-item:hover{
+    color: var(--black);
+    text-decoration: none;
+}
+
+.active-nav-item{
+    position: relative;
+    opacity: 1;
+    transition: all .5s;
+    background: var(--secondary);
+    color: var(--black);
+    font-weight: 600;
+}

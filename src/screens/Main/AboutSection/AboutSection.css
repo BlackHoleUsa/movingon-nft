@@ -1,0 +1,40 @@
+.about-right-section .border-box-about{
+    width: 450px;
+}
+
+.about-right-section h6{
+    font-size: 28px;    
+}
+
+.about-right-section span{
+    font-size: 18px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px){
+    .about-right-section .border-box-about{
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px 20px !important;
+    }
+    .about-right-section h6{
+        font-size: 22px;    
+    }
+    
+    .about-right-section span{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .about-right-section .border-box-about{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .about-right-section h6{
+        font-size: 19px;    
+    }
+    
+    .about-right-section span{
+        font-size: 14px;
+    }
+}
