@@ -68,7 +68,7 @@ const Topbar = (props) => {
                                 key={i}
                             >
                                 
-                                <span className={ (scroll || showMenu) ? 'text-black' : 'text-black' }>
+                                <span className={ (scroll || showMenu) ? 'text-black' : 'text-black' } style={{ fontWeight: 600 }}>
                                     { link.value }
                                 </span>
 

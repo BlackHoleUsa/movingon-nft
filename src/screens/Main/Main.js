@@ -2,14 +2,17 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Main.css';
 import Topbar from '../../components/Topbar/Topbar';
 import HeaderSection from './HeaderSection/HeaderSection';
+import Footer from './Footer/Footer';
 
 const Main = () => {
 
     const [currentState, setCurrentState] = useState('home');
 
     const sections = [
-        { id: 1, component: <HeaderSection />, className: 'main-container bg-img-set', 
-            componentState: '', sectionId: 'home-section' },
+        { id: 1, component: <HeaderSection />, className: 'main-container', 
+            sectionId: 'home-section' },
+        { id: 2, component: <Footer />, className: 'main-container bg-primary', 
+            sectionId: '' }
     ];
 
     useEffect(() => {
@@ -49,7 +52,6 @@ const Main = () => {
                 {
                     sections.map((section, i) => (
                         <div className={section.className}
-                            style={{ clipPath: i === 0 ? 'polygon(0% 0%, 100% 0, 100% 93%, 50% 100%, 0 93%)' : 'none' }}
                             key={i}
                             id={section?.sectionId}
                             name={section?.sectionId}
