@@ -1,4 +1,5 @@
 /* left */
+
 .header-left-section h6{
     letter-spacing: 1.55px;
     font-size: 62px;
@@ -18,7 +19,7 @@
 
 /* right */
 .header-right-section .border-box{
-    width: 450px;
+    width: 436px;
     height: 280px;
 }
 
@@ -33,6 +34,13 @@
     align-items: center;
     color: var(--white);
     font-size: 40px;
+}
+
+@media screen and (min-width: 1400px) {
+    .header-left-section{
+        width: 100% !important;
+        /* margin-left: auto; */
+    }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {

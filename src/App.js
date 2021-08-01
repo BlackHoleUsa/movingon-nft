@@ -10,7 +10,7 @@ import Dashboard from './screens/Dashboard/Dashboard';
 import Main from './screens/Main/Main';
 import Connect from "./screens/Connect/Connect";
 
-const MovingOn = (props) => {
+const Kyle = (props) => {
 
   const { history: { location } } = props;
 
@@ -33,4 +33,4 @@ const MovingOn = (props) => {
 
 }
 
-export default withRouter(MovingOn);
+export default withRouter(Kyle);

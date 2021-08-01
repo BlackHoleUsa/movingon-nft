@@ -1,0 +1,26 @@
+.teams-buttons{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.teams-buttons .team-btn{
+    border-radius: 50px;
+    color: var(--black);
+    font-weight: bold;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.teams-buttons .team-btn:nth-child(2){
+    color: var(--white);
+    background: var(--lightPurple) !important;
+}
+
+@media screen and (max-width: 991px) {
+    .teams-buttons{
+        width: 100%;
+    }
+}

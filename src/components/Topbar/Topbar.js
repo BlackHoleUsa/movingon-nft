@@ -1,30 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import './Topbar.css';
 import { NavLink } from 'react-router-dom';
-import { Images } from '../../Assets/Images';
-import { Routes } from '../../Routes/Routes';
-import { Avatar } from '../Avatar/Avatar';
+import { Images } from 'Assets/Images';
+import { Routes } from 'Routes/Routes';
+import { topBarContent } from 'Assets/Data';
 import { BiChevronDown } from 'react-icons/bi';
 import { Nav, Navbar} from 'react-bootstrap';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { connectMetaMask, checkAlreadyConnectedMetaMask } from 'redux/thunk/thunk';
 
 const Topbar = (props) => {
     
+    // redux setups
+    const dispatch = useDispatch();
+    const state = useSelector(state => state);
+
     const [ scroll, setScroll ] = useState(false);
 
     const [ showMenu, setShowMenu ] = useState(false);
 
     const { currentState, clickLink } = props;
 
-    const data = [
-        { id: 1, value: 'Home', sectionId: 'home-section' },
-        { id: 2, value: 'About', sectionId: 'about-section' },
-        { id: 3, value: 'History', sectionId: 'history-section' },
-        { id: 4, value: 'Features', sectionId: 'features-section' },
-    ];
+    const connectToMetaMask = () => {
+      dispatch(connectMetaMask());
+    };
 
     useEffect(() => {
-        window.addEventListener('scroll', listenToScroll)
+        window.addEventListener('scroll', listenToScroll);
+        
+        const interval = setInterval(() => {
+            dispatch(checkAlreadyConnectedMetaMask(state?.connection));
+        }, 3000);
+      
+        return () => {
+            clearInterval(interval);
+        };
+
     }, []);
 
     const listenToScroll = () => {
@@ -38,7 +50,7 @@ const Topbar = (props) => {
         } else{
             setScroll(false);
         }
-    }
+    };
 
     return(
 
@@ -47,8 +59,8 @@ const Topbar = (props) => {
             ${ (scroll || showMenu) ? 'bg-grey' : '' }
         `}>
         
-            <NavLink to={`/${Routes.main}`} className="text-black text-uppercase font-weight-bold">
-                Logo Here
+            <NavLink to={`/${Routes.main}`}>
+                <img alt="" src={Images.textLogo} width="170px" className="mr-4" />
             </NavLink>
         
             <Navbar.Toggle className={` ${scroll ? 'bg-lightPurple' : 'bg-whiteSmoke'} border-0`} 
@@ -58,17 +70,17 @@ const Topbar = (props) => {
                 <Nav className="navbar-nav ml-auto">
 
                     {
-                        data.map((link, i) => (
+                        topBarContent.map((link, i) => (
                             <Nav.Item 
                                 onClick={() => clickLink({ value: link.value.toLowerCase(), sectionId: link.sectionId })}
-                                className={` nav-item p-0 nav-links 
+                                className={` nav-item p-0 nav-links heading-font
                                 ${ (currentState.toLowerCase() === link.value.toLowerCase()) ? 
                                     'gradient-apply active-link' : 'inactive-link' } 
                                 `} 
                                 key={i}
                             >
                                 
-                                <span className={ (scroll || showMenu) ? 'text-black' : 'text-black' } style={{ fontWeight: 600 }}>
+                                <span className={ (scroll || showMenu) ? 'text-black font-weight-bold' : 'text-black font-weight-bold' }>
                                     { link.value }
                                 </span>
 
@@ -76,13 +88,36 @@ const Topbar = (props) => {
                         ))
                     }
 
-                    <NavLink exact to={`/${Routes.connect}`} className={`connect-wallet pb-1 
-                        ${ (scroll || showMenu) ? 'inactive-link-dark' : 'inactive-link' } `} 
-                        activeClassName="gradient-apply pt-1">
-                        
-                        Connect Wallet <BiChevronDown className="ml-1" style={{ fontSize: '18px' }} />
+                    <button className="connect-wallet pb-0 gradient-apply border-0 connect-meta-mask" 
+                      onClick={connectToMetaMask}
+                      disabled={state?.connection}
+                    >
+                      { 
+                        !state?.connection ? <>Connect Wallet <BiChevronDown className="ml-1 font-18px" /></> 
+                        : <div className="app-flex-row align-items-center text-white justify-content-center">
+                            
+                            <div className="app-flex-column heading-font bg-blue align-items-center justify-content-center p-2 font-14px rounded-circle" 
+                            style={{ width: '32px', height: '32px' }}>
+                              U
+                            </div>
+
+                            <span className="font-14px ml-3 heading-font"> { state?.address[0]?.substr(0, 10) } </span>
+
+                        </div>
+                      }
                     
-                    </NavLink>
+                    </button>
+
+                    { 
+                      state?.connection &&
+                      <NavLink exact to={`/${Routes.connect}`} className={`connect-wallet text-white gradient-apply pb-0 w-auto pl-4 pr-3 margin-buy-btn heading-font
+                          ${ (scroll || showMenu) ? 'inactive-link-dark' : 'inactive-link' } `} 
+                        >
+                          
+                        BUY <BiChevronDown className="ml-1 font-18px" />
+                      
+                      </NavLink>
+                    }
 
                 </Nav>
             </Navbar.Collapse>

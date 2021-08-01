@@ -79,3 +79,19 @@ h6 {
    url("./fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
 }
+
+.regular-SemiBold{
+  font-family: "MontserratSemiBold";
+}
+
+.regular-Medium{
+  font-family: "MontserratMedium";
+}
+
+.regular-light{
+  font-family: "MontserratLight";
+}
+
+.regular-font{
+  font-family: "MontserratRegular";
+}

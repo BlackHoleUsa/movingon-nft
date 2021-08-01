@@ -1,0 +1,60 @@
+.road-map-contain{
+    margin-top: 50px;
+}
+
+.padding-line{
+    padding: 2px 0px !important;
+}
+
+.padding-flex-row{
+    padding: 0px 40px !important;
+}
+
+.text-road-map-margin{
+    margin: 0px 28px;
+}
+
+.remove-flex{
+    display: block !important;
+}
+
+.show-flex{
+    display: none !important;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .text-road-map-margin{
+        margin: 0px 17px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .padding-flex-row{
+        padding: 0px 30px !important;
+    }
+    .text-road-map-margin{
+        margin: 0px 6px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .padding-flex-row{
+        padding: 0px 12px !important;
+    }
+    .text-road-map-margin{
+        margin: 0px 0px;
+    }
+    .remove-flex{
+        display: none !important;
+    }
+    .show-flex{
+        display: block !important;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .flex-align-headings{
+        justify-content: flex-start !important;
+        flex-wrap: wrap !important;
+    }
+}

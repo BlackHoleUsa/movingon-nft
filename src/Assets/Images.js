@@ -1,35 +1,34 @@
 export const Images = {
-    
     logo: require('./images/logo.png').default,
-    author: require('./images/author.png').default,
-    book: require('./images/header-book.png').default,
-    city: require('./images/city.png').default,
-    shade: require('./images/shade.png').default,
+    textLogo: require('./images/logo-with-text.png').default,
 
-    // clients
-    clients: [
-        require('./images/client1.png').default,
-        require('./images/client2.png').default,
-        require('./images/client3.png').default
+    aboutImage: require('./images/about-img.png').default,
+
+    // features icons
+    bulb: require('./images/yellow-bulb.png').default,
+    db: require('./images/yellow-db.png').default,
+    jig: require('./images/yellow-jigsaw.png').default,
+    line: require('./images/yellow-line.png').default,
+    mind: require('./images/yellow-mind.png').default,
+    profit: require('./images/yellow-profits.png').default,
+
+    ctn: require('./images/ctn.png').default,
+    circleSide: require('./images/circle-side.png').default,
+    circleSideHalf: require('./images/circle-side-half.png').default,
+
+    teamMembers: [
+        require('./images/team-mem1.png').default,
+        require('./images/team-mem2.png').default,
+        require('./images/team-mem3.png').default,
+        require('./images/team-mem4.png').default,
     ],
 
-    // icons
-    coins: require('./images/coins.png').default,
-    transfer: require('./images/transfer.png').default,
-    trust: require('./images/trust.png').default,
-    pat: require('./images/pat.png').default,
+    teamHeadings: require('./images/team-headings.png').default,
 
-    ratings: [
-        require('./images/content-copy.png').default,
-        require('./images/diamond.png').default,
-        require('./images/diagram.png').default,
-        require('./images/open-people.png').default
-    ],
+    bgDashboard: require('./images/bg-dashboard.png').default,
 
-    // owners
-    owners: [
-        require('./images/owner1.png').default,
-        require('./images/owner2.png').default,
-        require('./images/owner3.png').default
-    ]
+    // crystal booker
+    bgConnect: require('./images/bg-connect.png').default,
+    allocations: require('./images/allocations.png').default,
+    locations: require('./images/bg-locations.png').default
 }

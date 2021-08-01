@@ -26,8 +26,18 @@
   font-size: 16px !important;
 }
 
+.font-15px{
+  font-size: 15px !important;
+}
+
 .font-14px{
   font-size: 14px !important;
+}
+
+.bg-img-set{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('Assets/images/bg-dashboard.png');
 }
 
 .app-flex-row {
@@ -49,7 +59,7 @@
   }
 
   .gradient-apply{
-    background: var(--blueShade) !important;
+    background: var(--lightPurple) !important;
     color: var(--white) !important;
     opacity: 1;
     display: flex;
@@ -86,6 +96,10 @@
   
   .font-16px{
     font-size: 15px !important;
+  }
+
+  .font-15px{
+    font-size: 14px !important;
   }
   
   .font-14px{

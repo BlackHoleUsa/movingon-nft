@@ -1,5 +1,5 @@
 .padding-topbar{
-    padding: 15px 120px 10px 120px !important;
+    padding: 15px 170px 15px 170px !important;
     transition: all .4s ease-in-out;
 }
 
@@ -7,17 +7,27 @@
     .padding-topbar{
         padding: 20px 15px 10px 30px !important;
     }
+    .nav-links{
+        margin-right: 30px;
+    }
 }
 
 @media screen and (max-width: 991px) {
     .padding-topbar{
-        padding: 10px 20px 5px 20px !important;
+        padding: 10px 20px 10px 20px !important;
     }
     .navbar-nav{
         margin-top: 20px;
     }
     .nav-item{
         width: 100% !important;
+    }
+    .connect-meta-mask{
+        margin: 10px 0px !important;
+        width: 100% !important;
+    }
+    .margin-buy-btn{
+        margin: 0 !important;
     }
 }
 
@@ -32,12 +42,11 @@
     margin-top: 2px;
     transition: all .3s ease-in-out;
     background: none !important;
-    margin-right: 55px;
+    margin-right: 37px;
 }
 
 .active-link{
-    border-bottom: 2px solid var(--blueShade);
-    border-radius: 1px;
+    border-bottom: 2px solid var(--lightPurple);
 }
 
 .nav-links:nth-child(7){
@@ -74,4 +83,8 @@
 .inactive-link:hover{
     color: var(--black) !important;
     text-decoration: none !important;
+}
+
+.margin-buy-btn{
+    margin-left: 10px;
 }
