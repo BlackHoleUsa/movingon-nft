@@ -56,18 +56,18 @@ const Topbar = (props) => {
 
         <Navbar collapseOnSelect expand="lg" className={`
             navbar navbar-expand-lg navbar-light fixed-top padding-topbar
-            ${ (scroll || showMenu) ? 'bg-grey' : '' }
+            ${ (scroll || showMenu) ? 'bg-lightPrimary' : '' }
         `}>
         
             <NavLink to={`/${Routes.main}`}>
-                <img alt="" src={Images.textLogo} width="170px" className="mr-4" />
+                <span className="text-uppercase font-28px text-black mr-4">logo here</span>
             </NavLink>
         
             <Navbar.Toggle className={` ${scroll ? 'bg-lightPurple' : 'bg-whiteSmoke'} border-0`} 
             onClick={() => setShowMenu(!showMenu)} />
 
             <Navbar.Collapse>
-                <Nav className="navbar-nav ml-auto">
+                <Nav className="navbar-nav ml-auto app-flex-column justify-content-center align-items-center">
 
                     {
                         topBarContent.map((link, i) => (
@@ -80,7 +80,7 @@ const Topbar = (props) => {
                                 key={i}
                             >
                                 
-                                <span className={ (scroll || showMenu) ? 'text-black font-weight-bold' : 'text-black font-weight-bold' }>
+                                <span className={ (scroll || showMenu) ? 'text-black' : 'text-black' }>
                                     { link.value }
                                 </span>
 
@@ -93,7 +93,7 @@ const Topbar = (props) => {
                       disabled={state?.connection}
                     >
                       { 
-                        !state?.connection ? <>Connect Wallet <BiChevronDown className="ml-1 font-18px" /></> 
+                        !state?.connection ? <>Connect Wallet</> 
                         : <div className="app-flex-row align-items-center text-white justify-content-center">
                             
                             <div className="app-flex-column heading-font bg-blue align-items-center justify-content-center p-2 font-14px rounded-circle" 

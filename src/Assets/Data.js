@@ -9,11 +9,8 @@ export const sidebarContent = [
 export const topBarContent = [
     { id: 1, value: 'Home', sectionId: 'home-section' },
     { id: 2, value: 'About', sectionId: 'about-section' },
-    { id: 3, value: 'Team', sectionId: 'team-section' },
-    { id: 4, value: 'Token', sectionId: 'token-section' },
-    { id: 5, value: 'Roadmap', sectionId: 'roadmap-section' },
-    { id: 6, value: 'FAQs', sectionId: 'faq-section' },
-    { id: 7, value: 'Contact', sectionId: 'contact-section' }
+    { id: 3, value: 'History', sectionId: 'history-section' },
+    { id: 4, value: 'Features', sectionId: 'features-section' }
 ];
 
 // features data
