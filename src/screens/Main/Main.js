@@ -8,6 +8,7 @@ import TokenSaleSection from './TokenSale/TokenSale';
 import RoadMapSection, { MyTeam } from './RoadMap/RoadMap';
 import ContactSection, { ContentSectionQuestions } from './ContactSection/ContactSection';
 import Footer from './Footer/Footer';
+import FooterArt from './Footer/FooterArt';
 
 const Main = () => {
 
@@ -40,9 +41,6 @@ const Main = () => {
 
         { id: 9, component: <ContentSectionQuestions />, className: 'main-container pt-0 bg-secondary', 
             componentState: 'contact', sectionId: 'contact-section' },
-
-        { id: 10, component: <Footer />, className: 'main-container pt-0 bg-lightPink', 
-            componentState: 'footer', sectionId: 'faq-section' }
     ];
 
     useEffect(() => {
@@ -59,10 +57,7 @@ const Main = () => {
         console.log(document.getElementById(sectionRef).offsetTop);
     }
 
-    const onScroll = (e) => {
-        // console.log(e);
-        // console.log(window.pageYOffset);
-    }
+    const onScroll = (e) => {}
 
     return(
 
@@ -91,6 +86,9 @@ const Main = () => {
                         </div>
                     ))
                 }
+
+                <FooterArt />
+                <Footer />
 
             </div>
 

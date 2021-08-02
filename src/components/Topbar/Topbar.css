@@ -32,6 +32,7 @@
     }
     .margin-buy-btn{
         margin: 0 !important;
+        width: 100% !important;
     }
 }
 
@@ -50,7 +51,7 @@
 }
 
 .active-link{
-    border-bottom: 2px solid var(--black);
+    border-bottom: 2px solid var(--blueShade);
 }
 
 .nav-links:nth-child(7){
@@ -63,7 +64,7 @@
     border-radius: 6px;
     font-size: 16px;
     font-weight: 600;
-    background: var(--black) !important;
+    background: var(--blueShade) !important;
     color: var(--white) !important;
 }
 

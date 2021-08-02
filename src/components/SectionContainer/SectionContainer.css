@@ -1,0 +1,16 @@
+.section-container{
+    padding: 50px 170px 45px 170px !important;
+    transition: all .4s ease-in-out;    
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .section-container{
+        padding: 50px 30px !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .section-container{
+        padding: 50px 25px !important;
+    }
+}

@@ -10,6 +10,10 @@
   font-size: 28px !important;
 }
 
+.font-25px{
+  font-size: 25px !important;
+}
+
 .font-23px{
   font-size: 23px !important;
 }
@@ -32,6 +36,10 @@
 
 .font-14px{
   font-size: 14px !important;
+}
+
+.font-12px{
+  font-size: 12px !important;
 }
 
 .bg-img-set{
@@ -81,6 +89,10 @@
   .font-28px{
     font-size: 22px !important;
   }
+
+  .font-25px{
+    font-size: 20px !important;
+  }
   
   .font-23px{
     font-size: 18px !important;
@@ -104,5 +116,8 @@
   
   .font-14px{
     font-size: 13px !important;
+  }
+  .font-12px{
+    font-size: 10px !important;
   }
 }
