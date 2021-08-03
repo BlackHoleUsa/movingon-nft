@@ -4,6 +4,10 @@ import Topbar from '../../components/Topbar/Topbar';
 import Footer from './Footer/Footer';
 import FooterArt from './Footer/FooterArt';
 import Features from './Features/Features';
+import ChooseBook from './ChooseBook/ChooseBook';
+import About from './About/About';
+import Companies from './Companies/Companies';
+import History from './History/History';
 
 const Main = () => {
 
@@ -41,6 +45,10 @@ const Main = () => {
             > 
                 <br /><br /><br /><br />
                 
+                <About />
+                <ChooseBook />
+                <Companies />
+                <History />
                 <Features />
                 <FooterArt />
                 <Footer />

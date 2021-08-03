@@ -3,6 +3,14 @@ export const Images = {
     city: require('./images/city.png').default,
     headerBook: require('./images/header-book.png').default,
 
+    chooseBookIcons: [
+        require('./images/transfer.png').default,
+        require('./images/trust.png').default,
+        require('./images/coins.png').default
+    ],
+
+    pat: require('./images/pat.png').default,
+
     features: [
         require('./images/content-copy.png').default,
         require('./images/diamond.png').default,
