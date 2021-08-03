@@ -9,6 +9,24 @@ export const Images = {
         require('./images/coins.png').default
     ],
 
+    owners: [
+        require('./images/owner1.png').default,
+        require('./images/owner2.png').default,
+        require('./images/owner3.png').default
+    ],
+
+    pages: [
+        require('./images/page1.png').default,
+        require('./images/page2.png').default,
+        require('./images/page2.png').default
+    ],
+
+    clients: [
+        require('./images/client1.png').default,
+        require('./images/client2.png').default,
+        require('./images/client2.png').default
+    ],
+
     pat: require('./images/pat.png').default,
 
     features: [

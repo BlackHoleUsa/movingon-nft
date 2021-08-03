@@ -20,7 +20,8 @@ const Footer = (props) => {
                 I folded the letter and put it back in my jean jacket pocket. I thought about it for awhile, standing on the cheese line at Penn Station, waiting to buy a train ticket, but honestly it was the view of the shrinking Manhattan skyline, as the Amtrak Train traveled southbound to Ray Charles’ sweet and clear as moonlight.
             </span>
 
-            <FlexRow className="w-100 align-items-center justify-content-center">
+            <FlexRow className="w-100 align-items-center d-inline-flex" 
+            style={{ justifyContent: 'center' }}>
                 <FiFacebook className="font-18px mr-3 cursor-pointer-sort" />
                 <FiTwitter className="font-18px mr-3 cursor-pointer-sort" />
                 <FiLinkedin className="font-18px cursor-pointer-sort" />

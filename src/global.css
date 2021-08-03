@@ -77,8 +77,16 @@
     cursor: pointer;
 }
 
+.history-owner{
+  border-bottom: 1px solid var(--blueShade);
+  width: max-content;
+}
 
 @media screen and (max-width: 767px) {
+
+  .history-owner{
+    width: 100% !important;
+  }
 
   .margin-features-bottom{
     margin-bottom: 40px !important;

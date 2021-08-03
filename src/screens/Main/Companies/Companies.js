@@ -46,7 +46,7 @@ const Companies = (props) => {
 const FeatureAward = ({ text }) => {
     return(
         <div className="app-flex-column w-100 justify-content-center bg-whiteShade pl-3 px-2 rounded mb-3" style={{ height: '85px' }}>
-            <FlexRow className="w-100 align-items-center justify-content-start">
+            <FlexRow className="align-items-center justify-content-start d-inline-flex">
                 <BiCheck className="text-success font-30px mr-2" />
                 <span className="text-black font-18px">{text}</span>
             </FlexRow>

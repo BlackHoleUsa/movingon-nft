@@ -8,6 +8,8 @@ import ChooseBook from './ChooseBook/ChooseBook';
 import About from './About/About';
 import Companies from './Companies/Companies';
 import History from './History/History';
+import Chapters from './Chapters/Chapters';
+import Clients from './Clients/Clients';
 
 const Main = () => {
 
@@ -49,6 +51,8 @@ const Main = () => {
                 <ChooseBook />
                 <Companies />
                 <History />
+                <Chapters />
+                <Clients />
                 <Features />
                 <FooterArt />
                 <Footer />
