@@ -82,6 +82,12 @@
   width: max-content;
 }
 
+@media screen and (max-width: 991px){
+  .margin-clients-bottom{
+    margin-bottom: 15px !important;
+  }
+}
+
 @media screen and (max-width: 767px) {
 
   .history-owner{
