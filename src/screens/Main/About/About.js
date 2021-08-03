@@ -8,7 +8,7 @@ const About = (props) => {
     
     return(
 
-        <SectionContainer className="bg-white text-black">
+        <SectionContainer className="bg-white text-black" id="about-section">
 
             <Row className="m-0 p-0">
                 
@@ -18,7 +18,7 @@ const About = (props) => {
 
                 </Col>
 
-                <Col xs={12} sm={12} md={6} lg={6} xl={6} className="px-4">
+                <Col xs={12} sm={12} md={6} lg={6} xl={6} className="px-4 mt-3">
                     
                     <FlexRow className="align-items-center justify-content-start mb-2 w-100">
                         <span className="font-14px text-blueShade mr-3">ABOUT AUTHOR</span>

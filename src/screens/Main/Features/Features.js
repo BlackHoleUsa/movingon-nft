@@ -14,7 +14,7 @@ const Features = (props) => {
 
     return(
 
-        <SectionContainer className="bg-white text-black">
+        <SectionContainer className="bg-white text-black" id="features-section">
             
             <Row className="m-0 p-0">
                 

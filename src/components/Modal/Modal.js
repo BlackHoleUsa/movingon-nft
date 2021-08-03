@@ -114,7 +114,7 @@ const CustomModal = (props) => {
                         </table>
                     </div>
 
-                    <button className="buy-coin-btn heading-font" onClick={clickBuyCoin}>
+                    <button className="buy-coin-btn heading-font connect-wallet" onClick={clickBuyCoin}>
                         { loading ? <Spinner animation="border" size="sm" /> : 'buy now' }
                     </button>
                 </div>

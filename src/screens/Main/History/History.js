@@ -8,7 +8,7 @@ const History = (props) => {
     
     return(
 
-        <SectionContainer className="bg-lightPrimary text-black">
+        <SectionContainer className="bg-lightPrimary text-black" id="history-section">
 
             <span className="mb-4 font-25px d-block text-center text-uppercase">ownership history</span>
             

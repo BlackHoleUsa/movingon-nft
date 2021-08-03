@@ -90,7 +90,7 @@ const Clients = (props) => {
                                 <div className={`rounded-circle mr-2 cursor-pointer-sort border-0
                                 ${ i === active ? 'bg-blueShade' : 'bg-whiteSmoke' }`}
                                 style={{ width: '15px', height: '15px' }}
-                                onClick={() => setActive(i)}
+                                onClick={() => setActive(i)} key={i}
                             >
                                 </div>
                             ))

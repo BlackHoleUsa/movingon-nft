@@ -3,14 +3,12 @@ import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Button from '@material-ui/core/Button';
-// import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-// import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 const useStyles = makeStyles({
     root: {
-        width: '100%',
+        minWidth: '100%',
         background: 'transparent',
         justifyContent: 'flex-start'
     },
@@ -25,7 +23,7 @@ const ProgressStepper = (props) => {
     
     const classes = useStyles();
     const theme = useTheme();
-    const [activeStep, setActiveStep] = React.useState(0);
+    const [activeStep, setActiveStep] = React.useState(1);
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -39,10 +37,10 @@ const ProgressStepper = (props) => {
 
         <MobileStepper
             variant="progress"
-            steps={6}
+            steps={3}
             position="static"
             activeStep={activeStep}
-            className={`m-0 ${classes.root}`}
+            className={`m-0 w-100 ${classes.root}`}
             nextButton={
                 <>
                     <Button size="small" onClick={handleBack} disabled={activeStep === 0} className={classes.btnWidth}>

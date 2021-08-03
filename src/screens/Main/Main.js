@@ -10,6 +10,7 @@ import Companies from './Companies/Companies';
 import History from './History/History';
 import Chapters from './Chapters/Chapters';
 import Clients from './Clients/Clients';
+import Header from './Header/Header';
 
 const Main = () => {
 
@@ -47,6 +48,7 @@ const Main = () => {
             > 
                 <br /><br /><br /><br />
                 
+                <Header />
                 <About />
                 <ChooseBook />
                 <Companies />
