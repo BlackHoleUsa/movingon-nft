@@ -77,7 +77,13 @@
     cursor: pointer;
 }
 
+
 @media screen and (max-width: 767px) {
+
+  .margin-features-bottom{
+    margin-bottom: 40px !important;
+  }
+
   .font-36px{
     font-size: 30px !important;
   }
