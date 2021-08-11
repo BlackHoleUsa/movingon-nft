@@ -4,6 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 import { Modal, Spinner } from 'react-bootstrap';
 import Web3 from "web3";
 import { ethers } from "ethers";
+import MetaMask from './../.././Assets/images/metamask.png';
 
 import {
     SALE_CONTRACT_ABI,
@@ -12,6 +13,9 @@ import {
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserBalance } from 'redux/actions/action';
+
+import { connectMetaMask, checkAlreadyConnectedMetaMask } from 'redux/thunk/thunk';
+
 
 const CustomModal = (props) => {
     
@@ -24,6 +28,12 @@ const CustomModal = (props) => {
     const [ value, setValue ] = useState('');
     const [ convertedValue, setConvertedValue ] = useState('');
 
+    const connectToMetaMask = () => {
+        if(dispatch(connectMetaMask())){
+            props.closePop();
+        }
+
+      };
     const clickBuyCoin = async () => {
 
         if(!value){
@@ -58,6 +68,7 @@ const CustomModal = (props) => {
                 .catch((err) => {
                     setLoading(false);
                     alert("Transaction failed");
+
                 });
 
             }
@@ -85,38 +96,20 @@ const CustomModal = (props) => {
 
                 <div className="app-flex-column w-100 py-3 bg-grey rounded m-0 px-0">
 
-                    <h4 className="text-center text-black"><span className="font-weight-bold heading-font">
-                        Total:</span> { state?.userBalance } ETH
+                    <h4 className="text-center text-black"> 
+                     Please Connect Wallet
                     </h4>
 
                     <div className="app-flex-row w-100 justify-content-center align-items-center my-4">
+                       <img src={MetaMask} width="30px" height="30px" style={{marginLeft: '7%', marginTop: '8%', marginBottom: '0%'}}/><p style={{fontSize: '25px', marginLeft: '1%', marginTop: '8%'}}>MetaMask</p>
                         
-                        <table>
-                            
-                            <tr>
-                                <td><h4 className="text-center text-black mr-3 heading-font">Buy</h4></td>
-                                <td>
-                                    <input className="buy-coin-filed heading-font" placeholder="Enter Value" type="number"
-                                        value={value} onChange={(e) => {
-                                            setValue(e.target.value); 
-                                            setConvertedValue(e.target.value/(5));
-                                        }}
-                                        onKeyDown={(e) => getRegExp.includes(e.key) && e.preventDefault()} 
-                                    />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><input className="buy-coin-calculate heading-font" readOnly={true}
-                                    value={`${convertedValue} ETH`} type="text" />
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                    
 
-                    <button className="buy-coin-btn heading-font connect-wallet" onClick={clickBuyCoin}>
-                        { loading ? <Spinner animation="border" size="sm" /> : 'buy now' }
+                    <button className="buy-coin-btn heading-font connect-wallet" onClick={connectToMetaMask}>
+                        { loading ? <Spinner animation="border" size="sm" /> : 'connect now' }
                     </button>
+                    </div>
+                    <div className="underLine"></div>
                 </div>
 
             </div>

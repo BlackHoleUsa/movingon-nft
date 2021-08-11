@@ -3,8 +3,8 @@
 }
 
 .buy-coin-btn{
-    width: 143px;
-    height: 51px;
+    width: 160px;
+    height: 41px;
     background: var(--lightPurple);
     border-radius: 6px;
     opacity: 1;
@@ -12,7 +12,11 @@
     text-transform: uppercase;
     color: var(--white);
     margin: 0px auto;
-    font-weight: bold;
+    font-family: 'Gilroy';
+    letter-spacing: 1px;
+    margin-top:40px;
+    margin-left:20%;
+    font-size: 13px;
 }
 .buy-coin-calculate,
 .buy-coin-filed{
@@ -35,4 +39,11 @@
 
 .buy-coin-filed::placeholder{
     color: gray;
+}
+.underLine{
+    height:1px;
+    width:70%;
+    background: gray;
+    margin-left:13%;
+    margin-top: -2%;
 }

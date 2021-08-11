@@ -1,10 +1,8 @@
 .connect{
-    margin-top: 80px;
-    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: -1.5%;
 }
-.connect .imageDiv{
-    display: inline-block;
-}
+
 .connect .imageDiv img{
     width:100%;
     height:100%;
@@ -24,11 +22,11 @@
 .connect .textDiv p{
     margin-left:3%;
     font-family: 'Montserrat';
-    font-size: 25px;
+    
     margin-top:1%;
-    margin-right:30%;
+    margin-right:5%;
 }
-.connect .textDiv h2{
+.connect .textDiv h3{
     font-family: 'Montserrat';
     font-size: 19;
     font-weight: 'SemiBold';
@@ -37,12 +35,12 @@
 }
 .ratingClass{
     margin-left:4%;
-    margin-top:1.5%;
+    margin-top:1%;
 }
 .reviewCount{
-    margin-top:10%;
+    
     font-family: 'TT Norms';
-    font-size: 10px;
+    font-size: 20px;
 }
 .connect .textDiv .buyBtn{
     width: 65%;

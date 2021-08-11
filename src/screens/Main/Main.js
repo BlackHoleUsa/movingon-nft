@@ -26,8 +26,12 @@ const Main = () => {
     }, []);
 
     const goToSection = (sectionRef) => {
-        document.getElementById(sectionRef).scrollIntoView({ behavior: 'smooth' });
+        if(sectionRef === 'buyNft-section'){
+
+        }else{
+            document.getElementById(sectionRef).scrollIntoView({ behavior: 'smooth' });
         console.log(document.getElementById(sectionRef).offsetTop);
+        }
     }
 
     const onScroll = (e) => {}
@@ -52,7 +56,6 @@ const Main = () => {
                 <About />
                 <ChooseBook />
                 <Companies />
-                <History />
                 <Chapters />
                 <Clients />
                 <Features />

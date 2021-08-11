@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Topbar.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import { Images } from 'Assets/Images';
 import { Routes } from 'Routes/Routes';
 import { topBarContent } from 'Assets/Data';
@@ -60,7 +60,7 @@ const Topbar = (props) => {
         `}>
         
             <NavLink to={`/${Routes.main}`}>
-                <span className="text-uppercase font-28px text-black mr-4">logo here</span>
+                <span className="text-uppercase font-28px text-black mr-4" style={{fontStyle: 'italic', fontFamily: 'Oswald'}}>moving on</span>
             </NavLink>
         
             <Navbar.Toggle className={` ${scroll ? 'bg-lightPurple' : 'bg-whiteSmoke'} border-0`} 
@@ -73,6 +73,7 @@ const Topbar = (props) => {
                         topBarContent.map((link, i) => (
                             <Nav.Item 
                                 onClick={() => clickLink({ value: link.value.toLowerCase(), sectionId: link.sectionId })}
+                                style={{fontWeight: 'bold'}}
                                 className={` nav-item p-0 nav-links heading-font
                                 ${ (currentState.toLowerCase() === link.value.toLowerCase()) ? 
                                     'gradient-apply active-link' : 'inactive-link' } 
@@ -81,7 +82,13 @@ const Topbar = (props) => {
                             >
                                 
                                 <span className={ (scroll || showMenu) ? 'text-black' : 'text-black' }>
-                                    { link.value }
+                                {link.sectionId === 'buyNft-section' ?
+                                    <Link to={`/${Routes.connect}`} style={{color: 'black'}}>
+                                    
+                                  {link.value}
+                                
+                                </Link>: link.value
+                                    }
                                 </span>
 
                             </Nav.Item>
