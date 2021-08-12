@@ -52,6 +52,15 @@ const Topbar = (props) => {
         }
     };
 
+    const goToLink = (index, link) => {
+        if(index === 3){
+            // replace link with client specific link
+            window.location.replace('http://blackhole.solutions');
+        } else{
+            clickLink({ value: link.value.toLowerCase(), sectionId: link.sectionId });
+        }
+    }
+ 
     return(
 
         <Navbar collapseOnSelect expand="lg" className={`
@@ -72,7 +81,7 @@ const Topbar = (props) => {
                     {
                         topBarContent.map((link, i) => (
                             <Nav.Item 
-                                onClick={() => clickLink({ value: link.value.toLowerCase(), sectionId: link.sectionId })}
+                                onClick={() => goToLink(i, link)}
                                 style={{fontWeight: 'bold'}}
                                 className={` nav-item p-0 nav-links heading-font
                                 ${ (currentState.toLowerCase() === link.value.toLowerCase()) ? 

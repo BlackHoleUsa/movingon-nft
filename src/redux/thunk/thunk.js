@@ -13,29 +13,34 @@ export const getArgs = (args, callback) => {
 
 export const checkAlreadyConnectedMetaMask = (currentConnection) => async dispatch => {
   
-  window.web3 = new Web3(window.web3.currentProvider);
+  if(window.web3){
 
-  if (window.web3.currentProvider.isMetaMask === true){
+    window.web3 = new Web3(window.web3.currentProvider);
 
-    await window.web3.eth.getAccounts((error, accounts) => {
-      if (accounts?.length) {
-        
-        window.web3.eth.getBalance(accounts[0]).then((res) => {
-          dispatch(setUserBalance({ flag: true, balance: res }));
-        });
+    if (window.web3.currentProvider.isMetaMask === true){
 
-        dispatch(connectMetaMaskAction({ connection: true, address: accounts }));
-      }
-      else {
-        dispatch(connectMetaMaskAction({ connection: false, address: [] }));
-        dispatch(setUserBalance({ flag: false, balance: 0 }));
-        if(currentConnection){
-          window.location.reload();
+      await window.web3.eth.getAccounts((error, accounts) => {
+        if (accounts?.length) {
+          
+          window.web3.eth.getBalance(accounts[0]).then((res) => {
+            dispatch(setUserBalance({ flag: true, balance: res }));
+          });
+
+          dispatch(connectMetaMaskAction({ connection: true, address: accounts }));
         }
-      }
-    });
+        else {
+          dispatch(connectMetaMaskAction({ connection: false, address: [] }));
+          dispatch(setUserBalance({ flag: false, balance: 0 }));
+          if(currentConnection){
+            window.location.reload();
+          }
+        }
+      });
+
+    }
 
   }
+  
 }
 
 // meta mask connection
