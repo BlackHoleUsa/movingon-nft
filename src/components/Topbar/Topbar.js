@@ -55,7 +55,7 @@ const Topbar = (props) => {
     const goToLink = (index, link) => {
         if(index === 3){
             // replace link with client specific link
-            window.location.replace('http://blackhole.solutions');
+            window.open('https://www.amazon.com/dp/B08MHMP2M7/ref=cm_sw_r_cp_api_glt_fabc_6GF5BAGVHZSZ9YYR0ZB9', '_blank');
         } else{
             clickLink({ value: link.value.toLowerCase(), sectionId: link.sectionId });
         }
