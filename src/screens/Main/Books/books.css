@@ -1,0 +1,33 @@
+
+.books-class h2{
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:0px;
+    font-weight: 400;
+    text-align: center;
+}
+.books-class img{
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+.book-name{
+    text-align: left;
+}
+.amazon-link:hover{
+    color: blue;
+    cursor: pointer;
+}
+.line{
+    height:2px;
+    width:85%;
+    background:gray;
+}
+.book-name-right{
+    text-align: right;
+    margin-left:20%;
+}
+
+.right-img{
+    height:91%;
+}

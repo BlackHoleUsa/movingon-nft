@@ -9,6 +9,7 @@ import MainLayout from "./hoc/Layout/Layout";
 import Dashboard from './screens/Dashboard/Dashboard';
 import Main from './screens/Main/Main';
 import Connect from "./screens/Connect/Connect";
+import Connect2 from "./screens/Connect/Connect2";
 
 const Kyle = (props) => {
 
@@ -25,7 +26,7 @@ const Kyle = (props) => {
         <PublicRoute exact={true} path={`/${Routes.main}`} component={Main} restricted={true} />
         <PublicRoute exact={true} path={`/${Routes.dashboard}`} component={Dashboard} restricted={true} />
         <PublicRoute exact={true} path={`/${Routes.connect}`} component={Connect} restricted={true} />
-
+        <PublicRoute exact={true} path={`/${Routes.butterflies}`} component={Connect2} restricted={true} />
       </MainLayout>
     </Switch>
 

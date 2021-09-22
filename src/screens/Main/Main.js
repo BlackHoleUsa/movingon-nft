@@ -6,6 +6,7 @@ import FooterArt from './Footer/FooterArt';
 import Features from './Features/Features';
 import ChooseBook from './ChooseBook/ChooseBook';
 import About from './About/About';
+import Books from './Books/Books';
 import Companies from './Companies/Companies';
 import History from './History/History';
 import Chapters from './Chapters/Chapters';
@@ -54,6 +55,7 @@ const Main = () => {
                 
                 <Header />
                 <About />
+                <Books />
                 <ChooseBook />
                 <Companies />
                 <Chapters />
