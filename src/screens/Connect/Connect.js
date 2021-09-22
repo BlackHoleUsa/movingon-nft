@@ -10,6 +10,14 @@ import FooterArt from './.././Main/Footer/FooterArt';
 import itemInfo from './../.././Assets/images/item-info.png';
 import Review from './rating.js';
 import './Connect.css';
+import Web3 from "web3";
+import { ethers } from "ethers";
+
+import {
+    SALE_CONTRACT_ABI,
+    SALE_CONTRACT_ADDRESS,
+} from "./contractInfo" ;
+
 const Connect = (props) => {
 
     const [showModal, setShowModal] = useState(false);
@@ -27,12 +35,38 @@ const Connect = (props) => {
         }
 
     }, []);
-    const handleBuyBtn = () => {
+    const handleBuyBtn = async() => {
         if (!state?.connection) {
             setCheckConnect('noConnect');
         } else {
             setCheckConnect('connected');
-            return (alert('Write the logic for buy'));
+
+            const web3 = new Web3(Web3.givenProvider);
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+
+            const contract = new ethers.Contract(
+                SALE_CONTRACT_ADDRESS,
+                SALE_CONTRACT_ABI,
+                signer
+            );
+
+            let bookvalue = 0.24;
+            let weiamount = Web3.utils.toWei(bookvalue.toString(), 'ether');
+
+            const accounts = await web3.eth.getAccounts();
+
+            console.log(await web3.eth.getBalance(accounts[0]));
+
+            const transaction = await contract.buyMvn(accounts[0], {value: weiamount})
+            .then(function (txHash) {
+                console.log('Transaction sent')
+              })
+            .catch(
+                //   alert("Transaction failed")
+            );
+
+            // return (alert('Write the logic for buy'));
         }
     };
     const closePop =() =>{
