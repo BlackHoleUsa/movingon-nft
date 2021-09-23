@@ -22,11 +22,9 @@ const Books = (props) => {
     }
     return (
 
-        <SectionContainer className="bg-white text-black books-class" id="about-section">
+        <SectionContainer className="bg-white text-black books-class" id="book-section">
             <h2 className="books-h6">Our Books</h2>
-
             <Row className="m-0 p-0">
-
                 <Col xs={12} sm={12} md={6} lg={6} xl={6}>
 
                     <img alt="" width="100%" src={book2} />

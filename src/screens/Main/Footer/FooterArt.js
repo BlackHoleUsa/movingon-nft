@@ -2,11 +2,22 @@ import React, { useState } from 'react';
 import './Footer.css';
 import { SectionContainer } from 'components/SectionContainer/SectionContainer';
 import { Row, Col } from 'react-bootstrap';
+import { validateEmail } from '../../../utilities/CommonMethods';
 
 const FooterArt = (props) => {
     
     const [email, setEmail] = useState('');
-
+    const submitEmail = () => {
+        if(!email){
+            alert('Please write your email.');
+        } 
+        else if(!validateEmail(email)){
+            alert('Please enter your valid email.');
+        } 
+        else{
+            alert('Valid email');
+        }
+    }
     return(
 
         <SectionContainer className="bg-lightPrimary text-black">
@@ -30,7 +41,7 @@ const FooterArt = (props) => {
                         </Col>
 
                         <Col xs={12} sm={12} md={12} lg={4} xl={4}>
-                            <button className="border-0 connect-wallet w-100 mt-2">
+                            <button className="border-0 connect-wallet w-100 mt-2" onClick={submitEmail}>
                                 Get Started
                             </button>
                         </Col>

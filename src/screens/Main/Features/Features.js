@@ -16,7 +16,7 @@ const Features = (props) => {
 
         <SectionContainer className="bg-white text-black" id="features-section">
             
-            <Row className="m-0 p-0">
+            <Row className="m-0 p-0 mt-5">
                 
                 {
                     data?.map((item, i) => (

@@ -6,7 +6,7 @@ import { Routes } from 'Routes/Routes';
 import { topBarContent } from 'Assets/Data';
 import { BiChevronDown } from 'react-icons/bi';
 import { Nav, Navbar} from 'react-bootstrap';
-
+import AmazonModal from 'components/Modal/AmazonModel';
 import { useDispatch, useSelector } from 'react-redux';
 import { connectMetaMask, checkAlreadyConnectedMetaMask } from 'redux/thunk/thunk';
 
@@ -53,9 +53,10 @@ const Topbar = (props) => {
     };
 
     const goToLink = (index, link) => {
-        if(index === 3){
+        if(index === 8){
             // replace link with client specific link
-            window.open('https://www.amazon.com/dp/B08MHMP2M7/ref=cm_sw_r_cp_api_glt_fabc_6GF5BAGVHZSZ9YYR0ZB9', '_blank');
+           // window.open('https://www.amazon.com/dp/B08MHMP2M7/ref=cm_sw_r_cp_api_glt_fabc_6GF5BAGVHZSZ9YYR0ZB9', '_blank');
+            
         } else{
             clickLink({ value: link.value.toLowerCase(), sectionId: link.sectionId });
         }
@@ -125,14 +126,14 @@ const Topbar = (props) => {
                     </button>
 
                     { 
-                      state?.connection &&
+                     /* state?.connection &&
                       <NavLink exact to={`/${Routes.connect}`} className={`connect-wallet text-white gradient-apply pb-0 w-auto pl-4 pr-3 margin-buy-btn heading-font
                           ${ (scroll || showMenu) ? 'inactive-link-dark' : 'inactive-link' } `} 
                         >
                           
                         BUY <BiChevronDown className="ml-1 font-18px" />
                       
-                      </NavLink>
+                      </NavLink>*/
                     }
 
                 </Nav>

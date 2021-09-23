@@ -7,7 +7,7 @@ import { Routes } from '../../Routes/Routes';
 import { useSelector } from 'react-redux';
 import Footer from './.././Main/Footer/Footer';
 import FooterArt from './.././Main/Footer/FooterArt';
-import itemInfo from './../.././Assets/images/item-info2.png';
+import itemInfo2 from './../.././Assets/images/item-info2.png';
 import Review from './rating.js';
 import './Connect.css';
 import Web3 from "web3";
@@ -94,7 +94,7 @@ const Connect2 = (props) => {
 
                 <Row className="connect w-100" xs={12} sm={12} md={12} lg={12} xl={12}>
                     <Col className="imageDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
-                        <img src={itemInfo} className="mr-3" width="100%"/>
+                        <img src={itemInfo2} className="mr-3" width="100%"/>
                     </Col>
                     <Col className="textDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
                         <h1 className="Book-heading font-36px">What's Inside The Book.</h1>
