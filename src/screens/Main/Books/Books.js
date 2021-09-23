@@ -7,6 +7,7 @@ import { Images } from 'Assets/Images';
 import { FlexRow } from 'components/FlexRow/FlexRow';
 import book1 from './../../../Assets/images/book1.png';
 import book2 from './../../../Assets/images/book2.png';
+import arrow from './../../../Assets/images/arrow-img.png';
 import './books.css';
 
 const Books = (props) => {
@@ -29,18 +30,22 @@ const Books = (props) => {
                 <Col xs={12} sm={12} md={6} lg={6} xl={6}>
 
                     <img alt="" width="100%" src={book2} />
+                    <div className="book-buy-links">
                     <spam className="book-name">Butterflies in Production</spam>
                     <div className="line"></div>
-                    <spam className="book-name amazon-link" onClick={()=>goToLink('movingOn')}>Buy book on Amazon</spam>
-                    <Link to={`/${Routes.butterflies}`} style={{color: 'black'}}><spam className="book-name-right">Buy Book NFT</spam></Link>
+                    <spam className="book-name amazon-link" onClick={()=>goToLink('movingOn')}>Buy book on Amazon <img alt="" width="10px" src={arrow} /></spam>
+                    <Link to={`/${Routes.butterflies}`} style={{color: 'black'}}><spam className="book-name-right">Buy Book NFT <img alt="" width="10px" src={arrow} /></spam></Link>
+                    </div>
                 </Col>
 
                 <Col xs={12} sm={12} md={6} lg={6} xl={6} className="px-4 mt-3">
                     <img alt="" width="95%" src={book1}/>
+                    <div className="book-buy-links">
                     <spam className="book-name-rightSection">Moving On</spam>
                     <div className="line"></div>
-                    <spam className="book-name amazon-link" onClick={()=>goToLink('movingOn')}>Buy book on Amazon</spam>
-                    <Link to={`/${Routes.connect}`} style={{color: 'black'}}><spam className="book-name-right">Buy Book NFT</spam></Link>
+                    <spam className="book-name amazon-link" onClick={()=>goToLink('movingOn')}>Buy book on Amazon <img alt="" width="10px" src={arrow} /></spam>
+                    <Link to={`/${Routes.connect}`} style={{color: 'black'}}><spam className="book-name-right">Buy Book NFT <img alt="" width="10px" src={arrow} /></spam></Link>
+                    </div>
                 </Col>
 
             </Row>
