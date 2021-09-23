@@ -40,6 +40,7 @@ const Connect2 = (props) => {
             setCheckConnect('noConnect');
         } else {
             setCheckConnect('connected');
+            if (state?.userBalance > parseFloat(0.24)) {
 
             const web3 = new Web3(Web3.givenProvider);
             const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -67,6 +68,9 @@ const Connect2 = (props) => {
             );
 
             // return (alert('Write the logic for buy'));
+        }else {
+            alert("Your balance is less.");
+          }
         }
     };
     const closePop =() =>{
