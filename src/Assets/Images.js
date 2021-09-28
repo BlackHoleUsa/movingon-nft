@@ -24,7 +24,7 @@ export const Images = {
     clients: [
         require('./images/client1.png').default,
         require('./images/client2.png').default,
-        require('./images/client2.png').default
+        require('./images/client3.png').default
     ],
 
     pat: require('./images/pat.png').default,

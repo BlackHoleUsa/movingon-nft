@@ -26,8 +26,7 @@ const Books = (props) => {
             <h2 className="books-h6">Our Books</h2>
             <Row className="m-0 p-0">
                 <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-                    
-                    <img alt="" width="120%" src={book2} />
+                    <img alt="" width="120%" src={book2} style={{marginTop: '-10%'}}/>
                     <div className="book-buy-links">
                     <spam className="book-name">Butterflies in Production</spam>
                     <div className="line"></div>
@@ -37,8 +36,8 @@ const Books = (props) => {
                 </Col>
 
                 <Col xs={12} sm={12} md={6} lg={6} xl={6} className="px-4 mt-3" >
-                    <img alt="" width="120%" src={book1} style={{marginLeft: '-20%'}}/>
-                    <div className="book-buy-links" style={{marginLeft: '0%', marginTop: '-16%'}}>
+                    <img alt="" width="120%" src={book1} style={{marginLeft: '-20%', marginTop: '-11.5%'}}/>
+                    <div className="book-buy-links" style={{marginLeft: '0%', marginTop: '-19%'}}>
                     <spam className="book-name-rightSection">Moving On</spam>
                     <div className="line"></div>
                     <spam className="book-name amazon-link" onClick={()=>goToLink('movingOn')}>Buy book on Amazon <img alt="" width="10px" src={arrow} /></spam>
