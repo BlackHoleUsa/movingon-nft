@@ -27,7 +27,7 @@ const useStyles = makeStyles({
 });
 
 export default function Review(props) {
-  const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(5);
   const [hover, setHover] = React.useState(-1);
   const classes = useStyles();
   return (
