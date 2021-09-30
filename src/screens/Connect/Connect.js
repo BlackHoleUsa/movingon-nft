@@ -36,8 +36,9 @@ const Connect = (props) => {
         }
 
     }, []);
-    const handleViewPdfBtn = () => {
+    const handleViewPdfBtn = async() => {
         alert('write logic');
+    
     }
     const handleBuyBtn = async() => {
         if (!state?.connection) {
