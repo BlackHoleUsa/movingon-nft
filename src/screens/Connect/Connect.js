@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import Footer from './.././Main/Footer/Footer';
 import FooterArt from './.././Main/Footer/FooterArt';
 import itemInfo from './../.././Assets/images/item-info.png';
+import pdfIcon from './../.././Assets/images/pdf.png';
 import Review from './rating.js';
 import './Connect.css';
 import Web3 from "web3";
@@ -21,7 +22,7 @@ import {
 const Connect = (props) => {
 
     const [showModal, setShowModal] = useState(false);
-
+    let [showPdf, setShowPdf] = useState('yes');
     const state = useSelector(state => state);
     const [checkConnect, setCheckConnect] = useState('no');
 
@@ -35,6 +36,9 @@ const Connect = (props) => {
         }
 
     }, []);
+    const handleViewPdfBtn = () => {
+        alert('write logic');
+    }
     const handleBuyBtn = async() => {
         if (!state?.connection) {
             setCheckConnect('noConnect');
@@ -61,7 +65,8 @@ const Connect = (props) => {
 
             const transaction = await contract.buyMvn(accounts[0], {value: weiamount})
             .then(function (txHash) {
-                console.log('Transaction sent')
+                console.log('Transaction sent');
+                alert("Transaction is done, NFT is saved in your Wallet");
               })
             .catch(
                 //   alert("Transaction failed")
@@ -111,6 +116,9 @@ const Connect = (props) => {
                         <h3 className="font-20px">0.24 ETH($ 125.255)</h3>
                         <button className="buyBtn" onClick={handleBuyBtn}>
                             buy now
+                        </button>
+                        <button className={`buyBtn view-pdf ${showPdf === 'no' ? 'noShow-pdf' : ''}`} onClick={handleViewPdfBtn}>
+                           <img src={pdfIcon} width="15px" height="15px" style={{marginTop: '-4px', marginRight: '5px'}}/> View PDF
                         </button>
                     </Col>
 
