@@ -22,9 +22,9 @@ const Footer = (props) => {
 
             <FlexRow className="w-100 align-items-center d-inline-flex" 
             style={{ justifyContent: 'center' }}>
-                <FiFacebook className="font-18px mr-3 cursor-pointer-sort" />
-                <FiTwitter className="font-18px mr-3 cursor-pointer-sort" />
-                <FiLinkedin className="font-18px cursor-pointer-sort" />
+                {//<FiFacebook className="font-18px mr-3 cursor-pointer-sort" />
+                //<FiTwitter className="font-18px mr-3 cursor-pointer-sort" />
+                /*<FiLinkedin className="font-18px cursor-pointer-sort" />*/}
             </FlexRow>
 
             <hr className="my-3 bg-black rounded w-75 mx-auto" />

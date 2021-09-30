@@ -43,7 +43,7 @@
     font-size: 20px;
 }
 .connect .textDiv .buyBtn{
-    width: 65%;
+    width: 45%;
     height: 51px;
     background: #172C3D;
     border-radius: 6px;
@@ -55,4 +55,10 @@
     margin-top:5%;
     margin-left:3%;
     margin-bottom: 5%;
+}
+.connect .textDiv .view-pdf{
+    background: rgb(38, 172, 38);
+}
+.connect .textDiv .noShow-pdf{
+    display: none;
 }

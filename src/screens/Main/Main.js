@@ -8,6 +8,8 @@ import ChooseBook from './ChooseBook/ChooseBook';
 import About from './About/About';
 import Books from './Books/Books';
 import Companies from './Companies/Companies';
+
+import CustomModal from "../../components/Modal/Modal";
 import History from './History/History';
 import Chapters from './Chapters/Chapters';
 import Clients from './Clients/Clients';
@@ -19,7 +21,6 @@ const Main = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", onScroll);
-
         return () => {
             setCurrentState('home');
         }
@@ -34,7 +35,7 @@ const Main = () => {
         console.log(document.getElementById(sectionRef).offsetTop);
         }
     }
-
+    
     const onScroll = (e) => {}
 
     return(
@@ -54,8 +55,8 @@ const Main = () => {
                 <br /><br /><br /><br />
                 
                 <Header />
-                <About />
                 <Books />
+                <About />
                 <ChooseBook />
                 <Companies />
                 <Chapters />
@@ -65,6 +66,7 @@ const Main = () => {
                 <Footer />
 
             </div>
+            
 
         </div>
 
