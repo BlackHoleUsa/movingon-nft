@@ -24,7 +24,7 @@ import {
 
 const Connect = (props) => {
   const [showModal, setShowModal] = useState(false);
-  let [showPdf, setShowPdf] = useState("yes");
+  let [showPdf, setShowPdf] = useState("no");
   const state = useSelector((state) => state);
   const [checkConnect, setCheckConnect] = useState("no");
 
@@ -41,9 +41,8 @@ const Connect = (props) => {
   //  Here is getBalance code in handleViewPdfBtn.
 
   const handleViewPdfBtn = async () => {
-    if (!state?.connection) {
-      setCheckConnect("noConnect");
-    } else {
+    if (state?.connection) {
+    
       const web3 = new Web3(Web3.givenProvider);
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
@@ -54,8 +53,9 @@ const Connect = (props) => {
         signer
       );
       const movOn= await mvncontract.balanceOf(state?.address[0]);
-      const movBalance = parseInt(movOn._hex, 16);
+      let movBalance = parseInt(movOn._hex, 16);
       console.log(movBalance);
+      movBalance >= 1 ? setShowPdf('yes') : setShowPdf('no');
     }
   };
   const handleBuyBtn = async () => {
@@ -86,6 +86,7 @@ const Connect = (props) => {
           .then(function (txHash) {
             console.log("Transaction sent");
             alert("Transaction is done, NFT is saved in your Wallet");
+            showBookPdf();
           })
           .catch
           //   alert("Transaction failed")
@@ -97,6 +98,9 @@ const Connect = (props) => {
       }
     }
   };
+  const showBookPdf = () => {
+    window.open('https://gateway.pinata.cloud/ipfs/Qmb5YuBxs5U5m6jtQqz5JRRy4wKFdQS2K4N238zH6ve2YU', '_blank');
+  }
   const closePop = () => {
     setCheckConnect("connected");
   };
@@ -141,7 +145,7 @@ const Connect = (props) => {
               className={`buyBtn view-pdf ${
                 showPdf === "no" ? "noShow-pdf" : ""
               }`}
-              onClick={handleViewPdfBtn}
+              onClick={showBookPdf}
             >
               <img
                 src={pdfIcon}

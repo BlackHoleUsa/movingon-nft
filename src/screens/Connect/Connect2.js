@@ -16,21 +16,21 @@ import { ethers } from "ethers";
 
 import { SALE_CONTRACT_ABI, SALE_CONTRACT_ADDRESS } from "./contractInfo";
 import {
-    NFT_CONTRACT_ABI,
-    MVN_CONTRACT_ADDRESS,
-    BTRF_CONTRACT_ADDRESS
-} from "./NFTcontract" ;
+  NFT_CONTRACT_ABI,
+  MVN_CONTRACT_ADDRESS,
+  BTRF_CONTRACT_ADDRESS,
+} from "./NFTcontract";
 
 const Connect2 = (props) => {
   const [showModal, setShowModal] = useState(false);
-  let [showPdf, setShowPdf] = useState("yes");
+  let [showPdf, setShowPdf] = useState("no");
   const state = useSelector((state) => state);
   const [checkConnect, setCheckConnect] = useState("no");
 
   const history = useHistory();
 
   useEffect(() => {
-      handleViewPdfBtn();
+    handleViewPdfBtn();
     setShowModal(true);
     return () => {
       setShowModal(false);
@@ -39,10 +39,8 @@ const Connect2 = (props) => {
 
   //  Here is getBalance code in handleViewPdfBtn.
 
-  const handleViewPdfBtn = async() => {
-    if (!state?.connection) {
-      setCheckConnect("noConnect");
-    } else {
+  const handleViewPdfBtn = async () => {
+    if (state?.connection) {
       const web3 = new Web3(Web3.givenProvider);
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
@@ -52,9 +50,10 @@ const Connect2 = (props) => {
         NFT_CONTRACT_ABI,
         signer
       );
-      const butterFly= await btrfcontract.balanceOf(state?.address[0]);
-      const bterBalance = parseInt(butterFly._hex, 16);
-      console.log(bterBalance);
+
+      const butterFly = await btrfcontract.balanceOf(state?.address[0]);
+      let bterBalance = parseInt(butterFly._hex, 16);
+      bterBalance >= 1 ? setShowPdf("yes") : setShowPdf("no");
     }
   };
   const handleBuyBtn = async () => {
@@ -85,6 +84,7 @@ const Connect2 = (props) => {
           .then(function (txHash) {
             console.log("Transaction sent");
             alert("Transaction is done, NFT is saved in your Wallet");
+            showBookPdf();
           })
           .catch
           //   alert("Transaction failed")
@@ -95,6 +95,12 @@ const Connect2 = (props) => {
         alert("Your balance is less.");
       }
     }
+  };
+  const showBookPdf = () => {
+    window.open(
+      "https://gateway.pinata.cloud/ipfs/QmRr4vDiphdxREKt8s529tyub1HyNZWX454bChYiyonxad",
+      "_blank"
+    );
   };
   const closePop = () => {
     setCheckConnect("connected");
@@ -121,12 +127,11 @@ const Connect2 = (props) => {
             <h1 className="Book-heading font-36px">What's Inside The Book.</h1>
             <h1 className="Book-Chapters font-36px">Chapters Covered</h1>
             <p className="font-20px">
-              With the help of his friends and family members, he initially
-              begins to successfully climb the rungs of the ladder to this new
-              life of achievement and prosperity; however, his life’s trials,
-              tribulations and extreme self-doubt intervene, sending Justin into
-              a whirlwind of confusion, insecurity and, ultimately, a relapse
-              into despair.
+              The television in the hospital room was turned on, but silent.
+              Someone had muted the volume in a sort of valetudinarian effort
+              because it was too loud, and it might have disturbed him although,
+              if anyone had bothered to ask Felix what he would have liked, he
+              would just as soon raise the volume to the maximum,
             </p>
             <Row>
               <Review />
@@ -140,7 +145,7 @@ const Connect2 = (props) => {
               className={`buyBtn view-pdf ${
                 showPdf === "no" ? "noShow-pdf" : ""
               }`}
-              onClick={handleViewPdfBtn}
+              onClick={showBookPdf}
             >
               <img
                 src={pdfIcon}
