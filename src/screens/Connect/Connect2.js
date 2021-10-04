@@ -50,9 +50,10 @@ const Connect2 = (props) => {
         NFT_CONTRACT_ABI,
         signer
       );
-
+      
       const butterFly = await btrfcontract.balanceOf(state?.address[0]);
       let bterBalance = parseInt(butterFly._hex, 16);
+      console.log(bterBalance);
       bterBalance >= 1 ? setShowPdf("yes") : setShowPdf("no");
     }
   };
