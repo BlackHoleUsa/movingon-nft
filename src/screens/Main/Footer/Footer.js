@@ -10,7 +10,7 @@ const Footer = (props) => {
 
         <SectionContainer className="bg-white text-black">
             
-            <span className="d-block text-uppercase mb-4 text-center font-30px">logo</span>
+            {/*<span className="d-block text-uppercase mb-4 text-center font-30px">logo</span>*/}
 
             <span className="d-block mb-3 text-center font-25px">
                 Change The Way Of Your Life Towards A Positive World
