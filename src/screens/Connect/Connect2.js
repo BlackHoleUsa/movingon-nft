@@ -81,7 +81,7 @@ const Connect2 = (props) => {
         console.log(await web3.eth.getBalance(accounts[0]));
 
         const transaction = await contract
-          .buyMvn(accounts[0], { value: weiamount })
+          .buyBtrf(accounts[0], { value: weiamount })
           .then(function (txHash) {
             console.log("Transaction sent");
             alert("Transaction is done, NFT is saved in your Wallet");
