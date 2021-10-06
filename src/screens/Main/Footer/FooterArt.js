@@ -15,13 +15,13 @@ const FooterArt = (props) => {
             alert('Please enter your valid email.');
         } 
         else{
-            const templateId = 'template_9j8udvl';
+            const templateId = 'template_28js4vp';
         sendFeedback(templateId, { message_html: email, reply_to: email})
         }
     }
     const sendFeedback = (templateId, variables) => {
         window.emailjs.send(
-          'service_b3eu7hh', templateId,
+          'service_nb5v6ej', templateId,
           variables
           ).then(res => {
             alert('Thanks for subscribing');
