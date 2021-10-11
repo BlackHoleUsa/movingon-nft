@@ -18,8 +18,8 @@ const Header = (props) => {
                 
                 <Col xs={12} sm={12} md={6} lg={6} xl={6}>
 
-                    <span className="text-blueShade text-uppercase font-50px">
-                        Moving On
+                    <span className="text-blueShade text-uppercase " style={{fontSize: '36px'}}>
+                    Rare Jewels Literary Works
                     </span>
 
                     <span className="font-14px text-black d-block mt-3 mb-4 pr-5">

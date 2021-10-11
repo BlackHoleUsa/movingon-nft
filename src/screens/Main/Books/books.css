@@ -46,10 +46,26 @@
 .right-img{
     height:91%;
 }
+.movinOn-buy{
+    margin-top: 16px;
+}
 @media screen and (min-width: 768px) and (max-width: 1023px){
     .book-buy-links{
         width:100%;
         margin-left:10%;
+    }
+}
+@media screen and (max-width: 767px){
+    .book-buy-links{
+        width:100%;
+        position: absolute;
+        z-index: 100;
+    }
+    .movinOn-buy{
+        margin-top: 50px;
+    }
+    .left-line{
+        width:82%;
     }
 }
 @media screen and (min-width: 375px) and (max-width: 591px) {
@@ -66,6 +82,9 @@
         text-align: left;
         font-size: 14px;
     }
+    .left-line{
+        width:95%;
+    }
 }
 @media screen and (max-width: 374px) {
     .book-buy-links{
@@ -74,11 +93,14 @@
     }
     .book-name-right{
         text-align: right;
-        margin-left:45%;
+        margin-left:55%;
         font-size: 14px;
     }
     .book-name{
         text-align: left;
         font-size: 14px;
+    }
+    .left-line{
+        width:95%;
     }
 }

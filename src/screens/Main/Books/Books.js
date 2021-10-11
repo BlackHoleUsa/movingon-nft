@@ -19,6 +19,7 @@ const Books = (props) => {
         } else{
             window.open('https://www.amazon.com/Butterflies-Production-Five-Short-Stories-ebook/dp/B09F14SLY5/ref=mp_s_a_1_1?crid=XH2PSRURSQI1&dchild=1&keywords=butterflies+in+production+jl+caban&qid=1632925691&sprefix=butterflies+in+Prod&sr=8-1', '_blank');
         }
+        
     }
     return (
 
@@ -29,13 +30,13 @@ const Books = (props) => {
                     <img alt="" width="120%" src={book2} style={{marginTop: '-10%'}}/>
                     <div className="book-buy-links">
                     <spam className="book-name">Butterflies in Production</spam>
-                    <div className="line"></div>
+                    <div className="line left-line"></div>
                     <spam className="book-name amazon-link" onClick={()=>goToLink('butterflyInProduction')}>Buy book on Amazon <img alt="" width="10px" src={arrow} /></spam>
-                    <Link to={`/${Routes.butterflies}`} style={{color: 'black'}}><spam className="book-name-right">Buy Book NFT <img alt="" width="10px" src={arrow} /></spam></Link>
+                    <Link to={`/${Routes.butterflies}`} style={{color: 'black'}}><spam className="book-name-right">Buy Book NFT<img alt="" width="10px" src={arrow} /></spam></Link>
                     </div>
                 </Col>
 
-                <Col xs={12} sm={12} md={6} lg={6} xl={6} className="px-4 mt-3" >
+                <Col xs={12} sm={12} md={6} lg={6} xl={6} className="px-4 movinOn-buy" >
                     <img alt="" width="120%" src={book1} style={{marginLeft: '-20%', marginTop: '-11.5%'}}/>
                     <div className="book-buy-links" style={{marginLeft: '0%', marginTop: '-19%'}}>
                     <spam className="book-name-rightSection">Moving On</spam>

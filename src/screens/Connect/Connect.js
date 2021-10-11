@@ -137,7 +137,7 @@ const Connect = (props) => {
               <Review />
               <p className="reviewCount">30 Reviews</p>
             </Row>
-            <h3 className="font-20px">0.24 ETH($ 125.255)</h3>
+            <h3 className="font-20px">0.0022 ETH($ 7.99)</h3>
             <button className="buyBtn" onClick={handleBuyBtn}>
               buy now
             </button>

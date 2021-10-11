@@ -70,7 +70,7 @@ const Topbar = (props) => {
         `}>
         
             <NavLink to={`/${Routes.main}`}>
-                <span className="text-uppercase font-28px text-black mr-4" style={{fontStyle: 'italic', fontFamily: 'Oswald'}}>moving on</span>
+                <span className="text-uppercase font-28px text-black mr-4" style={{fontStyle: 'italic', fontFamily: 'Oswald'}}>Rare Jewels</span>
             </NavLink>
         
             <Navbar.Toggle className={` ${scroll ? 'bg-lightPurple' : 'bg-whiteSmoke'} border-0`} 

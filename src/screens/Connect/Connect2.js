@@ -50,7 +50,7 @@ const Connect2 = (props) => {
         NFT_CONTRACT_ABI,
         signer
       );
-      
+
       const butterFly = await btrfcontract.balanceOf(state?.address[0]);
       let bterBalance = parseInt(butterFly._hex, 16);
       console.log(bterBalance);
@@ -127,18 +127,23 @@ const Connect2 = (props) => {
           <Col className="textDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
             <h1 className="Book-heading font-36px">What's Inside The Book.</h1>
             <h1 className="Book-Chapters font-36px">Chapters Covered</h1>
-            <p className="font-20px">
-              The television in the hospital room was turned on, but silent.
-              Someone had muted the volume in a sort of valetudinarian effort
-              because it was too loud, and it might have disturbed him although,
-              if anyone had bothered to ask Felix what he would have liked, he
-              would just as soon raise the volume to the maximum,
+            <p className="font-16px">
+              ‘Butterflies in Production; Five Short Stories,’ is the second
+              novella penned by J.L. Caban, which pulls characters from its
+              predecessor, ‘Moving On,’ the coming of age story of a young man
+              who is attempting to escape a world of drugs and alcohol; this
+              work, ‘Butterflies in Production,’ now draws attention to some of
+              the moral and social issues in which these new characters are
+              dealing; issues such as biracial relationships and the prejudices
+              that come with them; growing up in an inner city, having no choice
+              but to deal in narcotics to put food on the table; being raised in
+              an abusive home;
             </p>
             <Row>
               <Review />
               <p className="reviewCount">30 Reviews</p>
             </Row>
-            <h3 className="font-20px">0.24 ETH($ 125.255)</h3>
+            <h3 className="font-20px">0.0028 ETH($ 9.99)</h3>
             <button className="buyBtn" onClick={handleBuyBtn}>
               buy now
             </button>
