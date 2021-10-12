@@ -62,7 +62,7 @@ const Connect2 = (props) => {
       setCheckConnect("noConnect");
     } else {
       setCheckConnect("connected");
-      if (state?.userBalance > parseFloat(0.24)) {
+      if (state?.userBalance > parseFloat(0.0028)) {
         const web3 = new Web3(Web3.givenProvider);
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
@@ -127,7 +127,7 @@ const Connect2 = (props) => {
           <Col className="textDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
             <h1 className="Book-heading font-36px">What's Inside The Book.</h1>
             <h1 className="Book-Chapters font-36px">Chapters Covered</h1>
-            <p className="font-16px">
+            <p className="font-14px">
               ‘Butterflies in Production; Five Short Stories,’ is the second
               novella penned by J.L. Caban, which pulls characters from its
               predecessor, ‘Moving On,’ the coming of age story of a young man
@@ -137,7 +137,10 @@ const Connect2 = (props) => {
               dealing; issues such as biracial relationships and the prejudices
               that come with them; growing up in an inner city, having no choice
               but to deal in narcotics to put food on the table; being raised in
-              an abusive home;
+              an abusive home; and, finally, the stresses faced by women in a
+              male dominated occupation. Take a trip into their convoluted
+              worlds and witness how these protagonists struggle to find their
+              way through the darkness.
             </p>
             <Row>
               <Review />

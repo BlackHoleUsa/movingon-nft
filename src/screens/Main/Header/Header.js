@@ -16,17 +16,15 @@ const Header = (props) => {
             
             <Row className="m-0 p-0 mt-5">
                 
-                <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                <Col xs={12} sm={12} md={6} lg={6} xl={6} style={{paddingTop:'8%'}}>
 
-                    <span className="text-blueShade text-uppercase " style={{fontSize: '36px'}}>
-                    Rare Jewels Literary Works
-                    </span>
+                    <span className="text-blueShade text-uppercase " style={{fontSize: '36px', fontWeight: '400'}}>
+                    Rare Jewels<br /> Literary Works
+                    </span><br />
 
-                    <span className="font-14px text-black d-block mt-3 mb-4 pr-5">
-                        Moving On is a quintessential coming of age story that takes place in the early 1990s, in which an eighteen year old young man named Justin breaks free from a world of drugs and alcohol and attempts to make a better life for himself.
-                    </span>
+                    
 
-                    <button className="border-blueShade connect-wallet bg-white text-black mb-4" onClick={started}>
+                    <button className="border-blueShade connect-wallet bg-white text-black mb-4" onClick={started} style={{marginTop:'6%'}}>
                         Get It Now <RiArrowRightUpLine />
                     </button>
 

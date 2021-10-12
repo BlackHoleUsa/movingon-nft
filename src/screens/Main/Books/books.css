@@ -19,7 +19,7 @@
 .book-buy-links{
     width:83%;
     margin-left:17%;
-    margin-top: -13%;
+    margin-top: -10%;
     
 }
 .book-name{
@@ -49,10 +49,48 @@
 .movinOn-buy{
     margin-top: 16px;
 }
+.books-h5{
+    font-weight: 400;
+    font-size: 28px;
+    text-align: center;
+}
+.left-book{
+    margin-top:4%
+}
+.book-des{
+    width:68%;
+    height:370px;
+    margin-left:15%;
+    margin-top: 2%;
+    
+}
+.book-des p{
+    font-size: 14px;
+}
+.right-links{
+    margin-left: 17%;
+    margin-top:-10%;
+}
+@media screen and (min-width: 1200px) and (max-width: 1355px){
+    .book-des{
+        width:70%;
+        height:470px;
+        margin-left:15%;
+        margin-top: 2%;
+        
+    }
+}
 @media screen and (min-width: 768px) and (max-width: 1023px){
     .book-buy-links{
         width:100%;
         margin-left:10%;
+    }
+    .book-des{
+        width:80%;
+        height:480px;
+        margin-left:10%;
+        margin-top: 2%;
+        
     }
 }
 @media screen and (max-width: 767px){
@@ -64,7 +102,7 @@
     .movinOn-buy{
         margin-top: 50px;
     }
-    .left-line{
+    .line{
         width:82%;
     }
 }
@@ -85,6 +123,19 @@
     .left-line{
         width:95%;
     }
+    .book-des{
+        width:90%;
+        height:480px;
+        margin-left:5%;
+        margin-top: 2%;
+    }
+    .right-book-des{
+        height:370px;
+    }
+    .right-book{
+        margin-top: 40px;
+        padding-bottom: 20px;
+    }
 }
 @media screen and (max-width: 374px) {
     .book-buy-links{
@@ -102,5 +153,21 @@
     }
     .left-line{
         width:95%;
+    }
+    .book-des{
+        width:90%;
+        height:580px;
+        margin-left:5%;
+        margin-top: 2%;
+    }
+    .right-book-des{
+        height:430px;
+    }
+    .right-links{
+        margin-left: 0px;
+    }
+    .right-book{
+        margin-top: 40px;
+        padding-bottom: 20px;
     }
 }

@@ -14,7 +14,7 @@ const About = (props) => {
                 
                 <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                     
-                    <img alt="" width="100%" src={Images.author} />
+                    <img alt="" width="100%" src={Images.author} style={{marginTop: '10%'}}/>
 
                 </Col>
 
