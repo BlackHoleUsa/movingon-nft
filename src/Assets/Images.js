@@ -18,7 +18,7 @@ export const Images = {
     pages: [
         require('./images/page1.png').default,
         require('./images/page2.png').default,
-        require('./images/page2.png').default
+        require('./images/page3.png').default
     ],
 
     clients: [
