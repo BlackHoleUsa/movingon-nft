@@ -20,6 +20,8 @@ const Topbar = (props) => {
 
     const [ showMenu, setShowMenu ] = useState(false);
 
+    const clientAddress = '0x6583aADad3A8B3F3D489A2aBB80924023CB1FF8c';
+
     const { currentState, clickLink } = props;
 
     const connectToMetaMask = () => {
@@ -61,7 +63,7 @@ const Topbar = (props) => {
             clickLink({ value: link.value.toLowerCase(), sectionId: link.sectionId });
         }
     }
- 
+    
     return(
 
         <Navbar collapseOnSelect expand="lg" className={`
@@ -70,7 +72,7 @@ const Topbar = (props) => {
         `}>
         
             <NavLink to={`/${Routes.main}`}>
-                <span className="text-uppercase font-28px text-black mr-4" style={{fontStyle: 'italic', fontFamily: 'Oswald'}}>Rare Jewels</span>
+                {/*<span className="text-uppercase font-28px text-black mr-4" style={{fontStyle: 'italic', fontFamily: 'Oswald'}}>Rare Jewels</span>*/}
             </NavLink>
         
             <Navbar.Toggle className={` ${scroll ? 'bg-lightPurple' : 'bg-whiteSmoke'} border-0`} 
@@ -95,9 +97,9 @@ const Topbar = (props) => {
                                 {link.sectionId === 'buyNft-section' ?
                                     <Link to={`/${Routes.connect}`} style={{color: 'black'}}>
                                     
-                                  {link.value}
+            
                                 
-                                </Link>: link.value
+                                </Link>: link.sectionId === 'dashboard-section' && clientAddress !== state?.address[0] ? <Link to={`/${Routes.dashboard}`}><spam style={{color: 'black'}}>Dashboard</spam></Link> : link.value
                                     }
                                 </span>
 

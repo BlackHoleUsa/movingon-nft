@@ -28,7 +28,7 @@ const Main = () => {
     }, []);
 
     const goToSection = (sectionRef) => {
-        if(sectionRef === 'buyNft-section'){
+        if(sectionRef === 'buyNft-section' || sectionRef === 'dashboard-section'){
 
         }else{
             document.getElementById(sectionRef).scrollIntoView({ behavior: 'smooth' });

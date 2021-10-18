@@ -19,9 +19,7 @@ const Dashboard = () => {
   const state = useSelector((state) => state);
   const [checkConnect, setCheckConnect] = useState("no");
 
-  const history = useHistory();
-
-  //  Here is getBalance code in handleViewPdfBtn.
+  
 
   return (
     <div className="app-flex-column w-100 h-100 position-relative ">
@@ -62,15 +60,15 @@ const Dashboard = () => {
         </Col>
         <Col className="textDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
           <div className="sale-details move-sale-details" style={{background: '#E3E3E3', marginRight: '20%'}}>
-              <h3>Butterflies In Production</h3>
+              <h3 style={{fontWeight: '600'}}>Moving On</h3>
               <h2>Total Sales & Earning</h2>
               <div className="sold-books align-items-center justify-content-start">
                   <spam className="sold-head">Total Sold Books</spam>
-                  <spam className="sold-val">100</spam>
+                  <spam className="sold-val">90</spam>
               </div>
               <div className="sold-books total-earning align-items-center justify-content-start">
-                  <spam className="sold-head">Total Earning</spam>
-                  <spam className="sold-val">24 (ETH)</spam>
+                  <spam className="sold-head" style={{textAlign: 'left'}}>Total Earning</spam>
+                  <spam className="sold-val">22 (ETH)</spam>
               </div>
           </div>
         </Col>
