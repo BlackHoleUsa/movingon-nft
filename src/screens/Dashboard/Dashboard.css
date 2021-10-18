@@ -34,14 +34,105 @@
     padding: 0 !important;
 }
 
+
 @media screen and (min-width: 768px) and (max-width: 1199px) {
     .dashboard-conis {
         width: 49%;
     }
 }
 
-@media screen and (max-width: 767px) {
+.img-div{
+    width: 70%;
+    margin-left: 25%;
+}
+.sale-details{
+    width:60%;
+    background: '#E3E3E3';
+    border-radius: 20px;
+    margin-top: 20%;
+    margin-left: -50px;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.mov-img-div{
+    width:29%;
+    margin-left: 52%;
+    margin-top:-7%;
+}
+.move-sale-details{
+    margin-top: -10%;
+    margin-bottom: 50px;
+}
+.sale-details h3,
+.sale-details h2{
+    font-size: 16px;
+    font-family: 'Montserrat';
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+.sale-details h2{
+    padding-top: 5px;
+}
+.sale-details .sold-books{
+    width:80%;
+    margin-left: 10%;
+    height:25px;
+    margin-top: 30%;
+    border-bottom: 2px solid gray;
+}
+.sale-details .sold-books .sold-head{
+    padding-right:20%;
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+.sale-details .total-earning{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+@media screen and (min-width: 1500px){
+    .move-sale-details{
+      
+        margin-bottom: 200px;
+    }
+}
+@media screen and (max-width: 991px) {
+    
+    .move-sale-details{
+        margin-top: 0%;
+    }
     .dashboard-conis {
         width: 100%;
+    }
+    .sale-details{
+        width:80%;
+        text-align: center;
+        margin-left: 13%;
+        margin-top: -20%;
+    }
+    .move-sale-details{
+        margin-top: 0%;
+        margin-bottom: 50px;
+    }
+    .img-div{
+        width: 70%;
+        margin-left: 10%;
+    }
+    .mov-img-div{
+        width:29%;
+        margin-top:-5%;
+        margin-left: 35%;
+    }
+    .sale-details .sold-books{
+       
+        margin-top: 20%;
+    }
+    .sale-details .total-earning{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .sale-details .sold-books .sold-head{
+        padding-right:10%;
     }
 }

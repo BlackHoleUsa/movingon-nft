@@ -38,5 +38,7 @@ export const Images = {
 
     aboutImage: require('./images/about-img.png').default,
     bgDashboard: require('./images/bg-dashboard.png').default,
-    bgConnect: require('./images/bg-connect.png').default
+    bgConnect: require('./images/bg-connect.png').default,
+    movingDashboard: require('./images/moving-dashboard.png').default,
+    butterflyDashboard: require('./images/butterfly-dashboard.png').default
 }
