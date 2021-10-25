@@ -73,7 +73,9 @@ const Connect2 = (props) => {
           signer
         );
 
-        let bookvalue = 0.24;
+
+          // make this value dynamic
+        let bookvalue = 0.0024;
         let weiamount = Web3.utils.toWei(bookvalue.toString(), "ether");
 
         const accounts = await web3.eth.getAccounts();
