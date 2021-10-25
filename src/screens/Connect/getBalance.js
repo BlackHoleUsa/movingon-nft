@@ -7,6 +7,8 @@ import {
     BTRF_CONTRACT_ADDRESS
 } from "./NFTcontract" ;
 
+import { SALE_CONTRACT_ABI, SALE_CONTRACT_ADDRESS } from "./contractInfo";
+
 
 const web3 = new Web3(Web3.givenProvider);
 const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -24,5 +26,17 @@ const btrfcontract = new ethers.Contract(
     signer
 );
 
+const saleContract = new ethers.Contract(
+    SALE_CONTRACT_ADDRESS,
+    SALE_CONTRACT_ABI,
+    signer
+);
+
 await mvncontract.balanceOf(address[0]);
 await btrfcontract.balanceOf(address[0]);
+
+await saleContract.copiesSold1(); // moving on book.
+await saleContract.copiesSold2(); // butterflies in produciton book
+
+await saleContract.getMvnPrice();
+await saleContract.getBtrfPrice();
