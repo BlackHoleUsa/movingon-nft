@@ -1,11 +1,16 @@
-export const SALE_CONTRACT_ADDRESS = "0xB19FD84212370fE88fCC9acad6f2fF8aaA985a87";
+export const SALE_CONTRACT_ADDRESS = "0xCdb7a06CC3B11761d39f1528B17581F0873044ee";
 
 export const SALE_CONTRACT_ABI = [
 	{
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_weiprice",
+				"name": "_mvnprice",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_btrfprice",
 				"type": "uint256"
 			},
 			{
@@ -53,25 +58,12 @@ export const SALE_CONTRACT_ABI = [
 	},
 	{
 		"inputs": [],
-		"name": "_devwallet",
+		"name": "btrfPrice",
 		"outputs": [
 			{
-				"internalType": "address payable",
+				"internalType": "uint256",
 				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "_wallet",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "",
-				"type": "address"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -119,6 +111,45 @@ export const SALE_CONTRACT_ABI = [
 	{
 		"inputs": [],
 		"name": "copiesSold2",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getBtrfPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMvnPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "mvnPrice",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -197,26 +228,18 @@ export const SALE_CONTRACT_ABI = [
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_price",
+				"name": "_mvnprice",
 				"type": "uint256"
-			}
-		],
-		"name": "updatePrice",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "weiprice",
-		"outputs": [
+			},
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "_btrfprice",
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "view",
+		"name": "updatePrices",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ];

@@ -14,6 +14,7 @@ import { Row, Col } from "react-bootstrap";
 import { Images } from "../../Assets/Images";
 import { FaCommentsDollar } from "react-icons/fa";
 import Web3 from "web3";
+import Web3Utils from 'web3-utils';
 import { ethers } from "ethers";
 
 import {
@@ -21,7 +22,10 @@ import {
   MVN_CONTRACT_ADDRESS,
   BTRF_CONTRACT_ADDRESS,
 } from "./../Connect/NFTcontract";
-import { SALE_CONTRACT_ABI, SALE_CONTRACT_ADDRESS } from "./../Connect/contractInfo";
+import {
+  SALE_CONTRACT_ABI,
+  SALE_CONTRACT_ADDRESS,
+} from "./../Connect/contractInfo";
 const Dashboard = () => {
   const [totalMovingOn, setTotalMovingOn] = useState(0);
   const [totalButterfly, setTotalButterfly] = useState(0);
@@ -39,34 +43,27 @@ const Dashboard = () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
 
-      const mvncontract = new ethers.Contract(
-        MVN_CONTRACT_ADDRESS,
-        NFT_CONTRACT_ABI,
-        signer
-      );
-      const btrfcontract = new ethers.Contract(
-        BTRF_CONTRACT_ADDRESS,
-        NFT_CONTRACT_ABI,
-        signer
-      );
-      
       const saleContract = new ethers.Contract(
         SALE_CONTRACT_ADDRESS,
         SALE_CONTRACT_ABI,
         signer
       );
-      const movOn= await mvncontract.balanceOf(state?.address[0]);
-      await btrfcontract.balanceOf(state?.address[0]);
 
       const movingSold = await saleContract.copiesSold1(); // moving on book.
       const butterflySold = await saleContract.copiesSold2(); // butterflies in produciton book
+      const mvnPrice = await saleContract.mvnPrice();
+      const btrfPrice = await saleContract.btrfPrice();
+      const mvnP = Web3Utils.hexToNumber(mvnPrice);
+      const btrfP = Web3Utils.hexToNumber(btrfPrice);
+      const mvnFinalPrice = Web3Utils.fromWei(`${mvnP}`, 'ether');
+      const btrfFinalPrice = Web3Utils.fromWei(`${btrfP}`, 'ether');
+      console.log(mvnFinalPrice, btrfFinalPrice);
       const moveT = parseInt(movingSold._hex, 16);
       const butterT = parseInt(butterflySold._hex, 16);
       setTotalMovingOn(moveT);
       setTotalButterfly(butterT);
-      const movePrice = (moveT * 0.0019);
-      const butterPrice = (butterT * 0.0024);
-      console.log(movePrice, parseFloat(butterPrice).toFixed(4));
+      const movePrice = moveT * mvnFinalPrice;
+      const butterPrice = butterT * btrfFinalPrice;
       setTotalButterflyPrice(parseFloat(butterPrice).toFixed(4));
       setTotalMovingOnPrice(parseFloat(movePrice).toFixed(4));
     }
@@ -86,17 +83,20 @@ const Dashboard = () => {
           </div>
         </Col>
         <Col className="textDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
-          <div className="sale-details" style={{background: '#E3E3E3', marginRight: '20%'}}>
-              <h3>Butterflies In Production</h3>
-              <h2>Total Sales & Earning</h2>
-              <div className="sold-books align-items-center justify-content-start">
-                  <spam className="sold-head">Total Sold Books</spam>
-                  <spam className="sold-val">{totalButterfly}</spam>
-              </div>
-              <div className="sold-books total-earning align-items-center justify-content-start">
-                  <spam className="sold-head">Total Earning</spam>
-                  <spam className="sold-val">{totalButterflyPrice} (ETH)</spam>
-              </div>
+          <div
+            className="sale-details"
+            style={{ background: "#E3E3E3", marginRight: "20%" }}
+          >
+            <h3>Butterflies In Production</h3>
+            <h2>Total Sales & Earning</h2>
+            <div className="sold-books align-items-center justify-content-start">
+              <spam className="sold-head">Total Sold Books</spam>
+              <spam className="sold-val">{totalButterfly}</spam>
+            </div>
+            <div className="sold-books total-earning align-items-center justify-content-start">
+              <spam className="sold-head">Total Earning</spam>
+              <spam className="sold-val">{totalButterflyPrice} (ETH)</spam>
+            </div>
           </div>
         </Col>
       </Row>
@@ -108,17 +108,22 @@ const Dashboard = () => {
           </div>
         </Col>
         <Col className="textDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
-          <div className="sale-details move-sale-details" style={{background: '#E3E3E3', marginRight: '20%'}}>
-              <h3 style={{fontWeight: '600'}}>Moving On</h3>
-              <h2>Total Sales & Earning</h2>
-              <div className="sold-books align-items-center justify-content-start">
-                  <spam className="sold-head">Total Sold Books</spam>
-                  <spam className="sold-val">{totalMovingOn}</spam>
-              </div>
-              <div className="sold-books total-earning align-items-center justify-content-start">
-                  <spam className="sold-head" style={{textAlign: 'left'}}>Total Earning</spam>
-                  <spam className="sold-val">{totalMovingOnPrice} (ETH)</spam>
-              </div>
+          <div
+            className="sale-details move-sale-details"
+            style={{ background: "#E3E3E3", marginRight: "20%" }}
+          >
+            <h3 style={{ fontWeight: "600" }}>Moving On</h3>
+            <h2>Total Sales & Earning</h2>
+            <div className="sold-books align-items-center justify-content-start">
+              <spam className="sold-head">Total Sold Books</spam>
+              <spam className="sold-val">{totalMovingOn}</spam>
+            </div>
+            <div className="sold-books total-earning align-items-center justify-content-start">
+              <spam className="sold-head" style={{ textAlign: "left" }}>
+                Total Earning
+              </spam>
+              <spam className="sold-val">{totalMovingOnPrice} (ETH)</spam>
+            </div>
           </div>
         </Col>
       </Row>
