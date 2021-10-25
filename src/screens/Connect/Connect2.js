@@ -62,7 +62,7 @@ const Connect2 = (props) => {
       setCheckConnect("noConnect");
     } else {
       setCheckConnect("connected");
-      if (state?.userBalance > parseFloat(0.0028)) {
+      if (state?.userBalance > parseFloat(0.0024)) {
         const web3 = new Web3(Web3.givenProvider);
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
