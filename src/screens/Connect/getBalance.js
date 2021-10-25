@@ -38,5 +38,5 @@ await btrfcontract.balanceOf(address[0]);
 await saleContract.copiesSold1(); // moving on book.
 await saleContract.copiesSold2(); // butterflies in produciton book
 
-await saleContract.getMvnPrice();
-await saleContract.getBtrfPrice();
+await saleContract.mvnPrice();
+await saleContract.btrfPrice();
