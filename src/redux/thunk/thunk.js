@@ -53,6 +53,7 @@ export const connectMetaMask = () => async dispatch => {
           console.log(window.web3);
           console.log(window.ethereum);
           updateAddress(dispatch);
+          
         } catch (err) {
           alert('Something went wrong.');
         }
@@ -63,7 +64,9 @@ export const connectMetaMask = () => async dispatch => {
         alert('You have to install MetaMask !');
       }   
 };
-
+const refreshPage = ()=>{
+  window.location.reload();
+}
 const updateAddress = async (dispatch) => {
     const web3 = window.web3;
 
@@ -72,9 +75,11 @@ const updateAddress = async (dispatch) => {
     if (accounts) {
         dispatch(connectMetaMaskAction({ connection: true, address: accounts }));
         web3.eth.getBalance(accounts[0]).then((res) => dispatch(setUserBalance({ flag: true, balance: res })));
+        refreshPage();
     }
     else{
         dispatch(connectMetaMaskAction({ connection: false, address: [] }));
         dispatch(setUserBalance({ flag: false, balance: 0 }));
+        refreshPage();
     }
 };

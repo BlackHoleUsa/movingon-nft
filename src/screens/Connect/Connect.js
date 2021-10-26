@@ -13,6 +13,7 @@ import Review from "./rating.js";
 import "./Connect.css";
 import Web3 from "web3";
 import { ethers } from "ethers";
+import Web3Utils from 'web3-utils';
 
 import { SALE_CONTRACT_ABI, SALE_CONTRACT_ADDRESS } from "./contractInfo";
 
@@ -24,6 +25,7 @@ import {
 
 const Connect = (props) => {
   const [showModal, setShowModal] = useState(false);
+  const [totalMovingOnPrice, setTotalMovingOnPrice] = useState(0);
   let [showPdf, setShowPdf] = useState("no");
   const state = useSelector((state) => state);
   const [checkConnect, setCheckConnect] = useState("no");
@@ -52,6 +54,17 @@ const Connect = (props) => {
         NFT_CONTRACT_ABI,
         signer
       );
+
+      const saleContract = new ethers.Contract(
+        SALE_CONTRACT_ADDRESS,
+        SALE_CONTRACT_ABI,
+        signer
+      );
+
+      const mvnPrice = await saleContract.mvnPrice();
+      const mvnP = Web3Utils.hexToNumber(mvnPrice);
+      const mvnFinalPrice = Web3Utils.fromWei(`${mvnP}`, 'ether');
+      setTotalMovingOnPrice(mvnFinalPrice);
       const movOn= await mvncontract.balanceOf(state?.address[0]);
       let movBalance = parseInt(movOn._hex, 16);
       console.log(movBalance);
@@ -63,7 +76,7 @@ const Connect = (props) => {
       setCheckConnect("noConnect");
     } else {
       setCheckConnect("connected");
-      if (state?.userBalance > parseFloat(0.0019)) {
+      if (state?.userBalance > totalMovingOnPrice) {
         const web3 = new Web3(Web3.givenProvider);
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
@@ -80,7 +93,6 @@ const Connect = (props) => {
 
         const accounts = await web3.eth.getAccounts();
 
-        console.log(await web3.eth.getBalance(accounts[0]));
 
         const transaction = await contract
           .buyMvn(accounts[0], { value: weiamount })
@@ -101,7 +113,9 @@ const Connect = (props) => {
   };
   const showBookPdf = () => {
     window.open('https://gateway.pinata.cloud/ipfs/Qmb5YuBxs5U5m6jtQqz5JRRy4wKFdQS2K4N238zH6ve2YU', '_blank');
+  
   }
+  
   const closePop = () => {
     setCheckConnect("connected");
   };
@@ -138,7 +152,7 @@ const Connect = (props) => {
               <Review />
               <p className="reviewCount">30 Reviews</p>
             </Row>
-            <h3 className="font-20px">0.0022 ETH($ 7.99)</h3>
+            <h3 className="font-20px">{totalMovingOnPrice} ETH($ 7.99)</h3>
             <button className="buyBtn" onClick={handleBuyBtn}>
               buy now
             </button>

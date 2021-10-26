@@ -13,6 +13,7 @@ import Review from "./rating.js";
 import "./Connect.css";
 import Web3 from "web3";
 import { ethers } from "ethers";
+import Web3Utils from 'web3-utils';
 
 import { SALE_CONTRACT_ABI, SALE_CONTRACT_ADDRESS } from "./contractInfo";
 import {
@@ -26,7 +27,7 @@ const Connect2 = (props) => {
   let [showPdf, setShowPdf] = useState("no");
   const state = useSelector((state) => state);
   const [checkConnect, setCheckConnect] = useState("no");
-
+  const [totalButterflyPrice, setTotalButterflyPrice] = useState(0);
   const history = useHistory();
 
   useEffect(() => {
@@ -51,6 +52,16 @@ const Connect2 = (props) => {
         signer
       );
 
+      const saleContract = new ethers.Contract(
+        SALE_CONTRACT_ADDRESS,
+        SALE_CONTRACT_ABI,
+        signer
+      );
+
+      const btrfPrice = await saleContract.btrfPrice();
+      const btrfP = Web3Utils.hexToNumber(btrfPrice);
+      const btrfFinalPrice = Web3Utils.fromWei(`${btrfP}`, 'ether');
+      setTotalButterflyPrice(btrfFinalPrice);
       const butterFly = await btrfcontract.balanceOf(state?.address[0]);
       let bterBalance = parseInt(butterFly._hex, 16);
       console.log(bterBalance);
@@ -62,7 +73,8 @@ const Connect2 = (props) => {
       setCheckConnect("noConnect");
     } else {
       setCheckConnect("connected");
-      if (state?.userBalance > parseFloat(0.0024)) {
+      console.log(totalButterflyPrice);
+      if (state?.userBalance > totalButterflyPrice) {
         const web3 = new Web3(Web3.givenProvider);
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
@@ -148,7 +160,7 @@ const Connect2 = (props) => {
               <Review />
               <p className="reviewCount">30 Reviews</p>
             </Row>
-            <h3 className="font-20px">0.0028 ETH($ 9.99)</h3>
+            <h3 className="font-20px">{totalButterflyPrice} ETH($ 9.99)</h3>
             <button className="buyBtn" onClick={handleBuyBtn}>
               buy now
             </button>

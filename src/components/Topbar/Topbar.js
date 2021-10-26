@@ -20,7 +20,7 @@ const Topbar = (props) => {
 
     const [ showMenu, setShowMenu ] = useState(false);
 
-    const clientAddress = '0x6583aADad3A8B3F3D489A2aBB80924023CB1FF8';
+    const clientAddress = '0x6583aADad3A8B3F3D489A2aBB80924023CB1FF8c';
 
     const { currentState, clickLink } = props;
 
@@ -99,7 +99,7 @@ const Topbar = (props) => {
                                     
             
                                  {/* check to go on Dashboard */}
-                                </Link>: link.sectionId === 'dashboard-section' && clientAddress !== state?.address[0] ? <Link to={`/${Routes.dashboard}`}><spam style={{color: 'black'}}>Dashboard</spam></Link> : link.value
+                                </Link>: link.sectionId === 'dashboard-section' && clientAddress === state?.address[0] ? <Link to={`/${Routes.dashboard}`}><spam style={{color: 'black'}}>Dashboard</spam></Link> : link.value
                                     }
                                 </span>
 
