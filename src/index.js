@@ -5,7 +5,7 @@ import './global.css';
 import MovingOn from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { HashRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import './fonts/Montserrat-Black.ttf';
 import './fonts/Montserrat-Light.ttf';
