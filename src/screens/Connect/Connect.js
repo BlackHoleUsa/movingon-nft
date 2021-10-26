@@ -71,6 +71,13 @@ const Connect = (props) => {
       movBalance >= 1 ? setShowPdf('yes') : setShowPdf('no');
     }
   };
+  const checkFetchedPrice = () => {
+    if(totalMovingOnPrice > 0){
+      handleBuyBtn();
+    }else{
+      alert('Please Connect your Wallet first OR Check your internet connection');
+    }
+  }
   const handleBuyBtn = async () => {
     if (!state?.connection) {
       setCheckConnect("noConnect");
@@ -88,7 +95,7 @@ const Connect = (props) => {
         );
 
         // make this value dynamic
-        let bookvalue = 0.0019;
+        let bookvalue = totalMovingOnPrice;
         let weiamount = Web3.utils.toWei(bookvalue.toString(), "ether");
 
         const accounts = await web3.eth.getAccounts();
@@ -153,7 +160,7 @@ const Connect = (props) => {
               <p className="reviewCount">30 Reviews</p>
             </Row>
             <h3 className="font-20px">{totalMovingOnPrice} ETH($ 7.99)</h3>
-            <button className="buyBtn" onClick={handleBuyBtn}>
+            <button className="buyBtn" onClick={checkFetchedPrice}>
               buy now
             </button>
             <button

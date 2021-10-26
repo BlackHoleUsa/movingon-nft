@@ -20,7 +20,7 @@ const Topbar = (props) => {
 
     const [ showMenu, setShowMenu ] = useState(false);
 
-    const clientAddress = '0x6583aADad3A8B3F3D489A2aBB80924023CB1FF8c';
+    const clientAddress = '0x0F7217FA0Ed45b019481F9E74b9c329245Afe84B';
 
     const { currentState, clickLink } = props;
 

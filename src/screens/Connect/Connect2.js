@@ -68,6 +68,13 @@ const Connect2 = (props) => {
       bterBalance >= 1 ? setShowPdf("yes") : setShowPdf("no");
     }
   };
+  const checkFetchedPrice = () => {
+    if(totalButterflyPrice > 0){
+      handleBuyBtn();
+    }else{
+      alert('Please Connect your Wallet first OR Check your internet connection');
+    }
+  }
   const handleBuyBtn = async () => {
     if (!state?.connection) {
       setCheckConnect("noConnect");
@@ -87,7 +94,7 @@ const Connect2 = (props) => {
 
 
           // make this value dynamic
-        let bookvalue = 0.0024;
+        let bookvalue = totalButterflyPrice;
         let weiamount = Web3.utils.toWei(bookvalue.toString(), "ether");
 
         const accounts = await web3.eth.getAccounts();
@@ -161,7 +168,7 @@ const Connect2 = (props) => {
               <p className="reviewCount">30 Reviews</p>
             </Row>
             <h3 className="font-20px">{totalButterflyPrice} ETH($ 9.99)</h3>
-            <button className="buyBtn" onClick={handleBuyBtn}>
+            <button className="buyBtn" onClick={checkFetchedPrice}>
               buy now
             </button>
             <button
