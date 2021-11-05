@@ -31,16 +31,10 @@ const Books = (props) => {
       id="book-section"
     >
       <Row className="m-0 p-0 mt-3">
-        <Col
-          xs={12}
-          sm={12}
-          md={6}
-          lg={6}
-          xl={6}
-        >
+        <Col xs={12} sm={12} md={6} lg={6} xl={6}>
           <h3 className="books-h5 left-book"> “Butterflies in Production” </h3>
           <div className="book-des left-book-des">
-            <p>
+            <p className="text-justify">
               ‘Butterflies in Production; Five Short Stories,’ is the second
               novella penned by J.L. Caban, which pulls characters from its
               predecessor, ‘Moving On,’ the coming of age story of a young man
@@ -75,23 +69,16 @@ const Books = (props) => {
             </Link>
           </div>
         </Col>
-        <Col
-          xs={12}
-          sm={12}
-          md={6}
-          lg={6}
-          xl={6}
-          className="px-4 movinOn-buy"
-        >
+        <Col xs={12} sm={12} md={6} lg={6} xl={6} className="px-4 movinOn-buy">
           <h3 className="books-h5 right-book"> “Moving On” </h3>
           <div className="book-des right-book-des">
-            <p style={{paddingBottom: '10px'}}>
+            <p className="text-justify" style={{ paddingBottom: "10px" }}>
               Moving On is a quintessential coming of age story that takes place
               in the early 1990s, in which an eighteen year old young man named
               Justin breaks free from a world of drugs and alcohol and attempts
               to make a better life for himself.
             </p>
-            <p>
+            <p className="text-justify">
               With the help of his friends and family members, he initially
               begins to successfully climb the rungs of the ladder to this new
               life of achievement and prosperity; however, his life’s trials,
@@ -108,7 +95,7 @@ const Books = (props) => {
           />
           <div
             className="book-buy-links right-links"
-            style={{marginTop: "-16%" }}
+            style={{ marginTop: "-16%" }}
           >
             <spam className="book-name-rightSection">Moving On</spam>
             <div className="line"></div>

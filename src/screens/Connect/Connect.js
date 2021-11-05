@@ -13,7 +13,7 @@ import Review from "./rating.js";
 import "./Connect.css";
 import Web3 from "web3";
 import { ethers } from "ethers";
-import Web3Utils from 'web3-utils';
+import Web3Utils from "web3-utils";
 
 import { SALE_CONTRACT_ABI, SALE_CONTRACT_ADDRESS } from "./contractInfo";
 
@@ -44,7 +44,6 @@ const Connect = (props) => {
 
   const handleViewPdfBtn = async () => {
     if (state?.connection) {
-    
       const web3 = new Web3(Web3.givenProvider);
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
@@ -63,21 +62,23 @@ const Connect = (props) => {
 
       const mvnPrice = await saleContract.mvnPrice();
       const mvnP = Web3Utils.hexToNumber(mvnPrice);
-      const mvnFinalPrice = Web3Utils.fromWei(`${mvnP}`, 'ether');
+      const mvnFinalPrice = Web3Utils.fromWei(`${mvnP}`, "ether");
       setTotalMovingOnPrice(mvnFinalPrice);
-      const movOn= await mvncontract.balanceOf(state?.address[0]);
+      const movOn = await mvncontract.balanceOf(state?.address[0]);
       let movBalance = parseInt(movOn._hex, 16);
       console.log(movBalance);
-      movBalance >= 1 ? setShowPdf('yes') : setShowPdf('no');
+      movBalance >= 1 ? setShowPdf("yes") : setShowPdf("no");
     }
   };
   const checkFetchedPrice = () => {
-    if(totalMovingOnPrice > 0){
+    if (totalMovingOnPrice > 0) {
       handleBuyBtn();
-    }else{
-      alert('Please Connect your Wallet first OR Check your internet connection');
+    } else {
+      alert(
+        "Please Connect your Wallet first OR Check your internet connection"
+      );
     }
-  }
+  };
   const handleBuyBtn = async () => {
     if (!state?.connection) {
       setCheckConnect("noConnect");
@@ -100,7 +101,6 @@ const Connect = (props) => {
 
         const accounts = await web3.eth.getAccounts();
 
-
         const transaction = await contract
           .buyMvn(accounts[0], { value: weiamount })
           .then(function (txHash) {
@@ -119,10 +119,12 @@ const Connect = (props) => {
     }
   };
   const showBookPdf = () => {
-    window.open('https://gateway.pinata.cloud/ipfs/Qmb5YuBxs5U5m6jtQqz5JRRy4wKFdQS2K4N238zH6ve2YU', '_blank');
-  
-  }
-  
+    window.open(
+      "https://gateway.pinata.cloud/ipfs/Qmb5YuBxs5U5m6jtQqz5JRRy4wKFdQS2K4N238zH6ve2YU",
+      "_blank"
+    );
+  };
+
   const closePop = () => {
     setCheckConnect("connected");
   };
@@ -130,72 +132,70 @@ const Connect = (props) => {
         return <Redirect exact to={`/${Routes.main}`} />
     }
 
-    else */ {
-    return (
-      <div className="app-flex-column w-100 h-100 position-relative ">
-        <Topbar
-          currentState={""}
-          clickLink={({ value, sectionId }) => {
-            console.log(value);
+    else */
+  return (
+    <div className="app-flex-column w-100 h-100 position-relative ">
+      <Topbar
+        currentState={""}
+        clickLink={({ value, sectionId }) => {
+          console.log(value);
+        }}
+      />
+
+      <Row className="connect w-100" xs={12} sm={12} md={12} lg={12} xl={12}>
+        <Col className="imageDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
+          <img src={itemInfo} className="mr-3" width="100%" />
+        </Col>
+        <Col className="textDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
+          <h1 className="Book-heading font-36px">What's Inside The Book.</h1>
+          <h1 className="Book-Chapters font-36px">Chapters Covered</h1>
+          <p className="font-20px text-justify">
+            With the help of his friends and family members, he initially begins
+            to successfully climb the rungs of the ladder to this new life of
+            achievement and prosperity; however, his life’s trials, tribulations
+            and extreme self-doubt intervene, sending Justin into a whirlwind of
+            confusion, insecurity and, ultimately, a relapse into despair.
+          </p>
+          <Row>
+            <Review />
+            <p className="reviewCount">30 Reviews</p>
+          </Row>
+          <h3 className="font-20px">{totalMovingOnPrice} ETH($ 7.99)</h3>
+          <button className="buyBtn" onClick={checkFetchedPrice}>
+            buy now
+          </button>
+          <button
+            className={`buyBtn view-pdf ${
+              showPdf === "no" ? "noShow-pdf" : ""
+            }`}
+            onClick={showBookPdf}
+          >
+            <img
+              src={pdfIcon}
+              width="15px"
+              height="15px"
+              style={{ marginTop: "-4px", marginRight: "5px" }}
+            />{" "}
+            View PDF
+          </button>
+        </Col>
+      </Row>
+      <FooterArt />
+      <Footer />
+      {checkConnect === "noConnect" ? (
+        <CustomModal
+          show={showModal}
+          closePop={closePop}
+          handleClose={() => {
+            setShowModal(false);
+            history.replace(`/${Routes.connect}`);
           }}
         />
-
-        <Row className="connect w-100" xs={12} sm={12} md={12} lg={12} xl={12}>
-          <Col className="imageDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
-            <img src={itemInfo} className="mr-3" width="100%" />
-          </Col>
-          <Col className="textDiv" xs={12} sm={12} md={12} lg={6} xl={6}>
-            <h1 className="Book-heading font-36px">What's Inside The Book.</h1>
-            <h1 className="Book-Chapters font-36px">Chapters Covered</h1>
-            <p className="font-20px">
-              With the help of his friends and family members, he initially
-              begins to successfully climb the rungs of the ladder to this new
-              life of achievement and prosperity; however, his life’s trials,
-              tribulations and extreme self-doubt intervene, sending Justin into
-              a whirlwind of confusion, insecurity and, ultimately, a relapse
-              into despair.
-            </p>
-            <Row>
-              <Review />
-              <p className="reviewCount">30 Reviews</p>
-            </Row>
-            <h3 className="font-20px">{totalMovingOnPrice} ETH($ 7.99)</h3>
-            <button className="buyBtn" onClick={checkFetchedPrice}>
-              buy now
-            </button>
-            <button
-              className={`buyBtn view-pdf ${
-                showPdf === "no" ? "noShow-pdf" : ""
-              }`}
-              onClick={showBookPdf}
-            >
-              <img
-                src={pdfIcon}
-                width="15px"
-                height="15px"
-                style={{ marginTop: "-4px", marginRight: "5px" }}
-              />{" "}
-              View PDF
-            </button>
-          </Col>
-        </Row>
-        <FooterArt />
-        <Footer />
-        {checkConnect === "noConnect" ? (
-          <CustomModal
-            show={showModal}
-            closePop={closePop}
-            handleClose={() => {
-              setShowModal(false);
-              history.replace(`/${Routes.connect}`);
-            }}
-          />
-        ) : (
-          ""
-        )}
-      </div>
-    );
-  }
+      ) : (
+        ""
+      )}
+    </div>
+  );
 };
 
 export default Connect;
