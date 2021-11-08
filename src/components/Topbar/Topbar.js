@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Topbar.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { Images } from "Assets/Images";
 import { Routes } from "Routes/Routes";
 import { topBarContent } from "Assets/Data";
@@ -12,16 +12,17 @@ import {
   connectMetaMask,
   checkAlreadyConnectedMetaMask,
 } from "redux/thunk/thunk";
-
 const Topbar = (props) => {
   // redux setups
   const dispatch = useDispatch();
+  const location = useLocation();
   const state = useSelector((state) => state);
 
   const [scroll, setScroll] = useState(false);
 
   const [showMenu, setShowMenu] = useState(false);
-
+  // const [amazonLink, setAmazonLink] = useState("");
+  let amazonLink;
   const clientAddress = "0x0F7217FA0Ed45b019481F9E74b9c329245Afe84B";
 
   const { currentState, clickLink } = props;
@@ -55,10 +56,24 @@ const Topbar = (props) => {
     }
   };
 
+  if (location?.pathname === "/butterflies") {
+    amazonLink =
+      "https://www.amazon.com/Butterflies-Production-Five-Short-Stories-ebook/dp/B09F14SLY5/ref=mp_s_a_1_1?crid=XH2PSRURSQI1&dchild=1&keywords=butterflies+in+production+jl+caban&qid=1632925691&sprefix=butterflies+in+Prod&sr=8-1";
+  } else if (location?.pathname === "/connect") {
+    amazonLink =
+      "https://www.amazon.com/dp/B08MHMP2M7/ref=cm_sw_r_cp_api_glt_fabc_6GF5BAGVHZSZ9YYR0ZB9";
+  } else {
+    amazonLink = "";
+  }
+
   const goToLink = (index, link) => {
-    if (index === 8) {
+    if (
+      (location?.pathname === "/butterflies" ||
+        location?.pathname === "/connect") &&
+      index === 3
+    ) {
       // replace link with client specific link
-      // window.open('https://www.amazon.com/dp/B08MHMP2M7/ref=cm_sw_r_cp_api_glt_fabc_6GF5BAGVHZSZ9YYR0ZB9', '_blank');
+      window.open(amazonLink, "_blank");
     } else {
       clickLink({ value: link.value.toLowerCase(), sectionId: link.sectionId });
     }
@@ -90,7 +105,8 @@ const Topbar = (props) => {
       <Navbar.Collapse>
         <Nav className="navbar-nav ml-auto app-flex-column justify-content-center align-items-center">
           {topBarContent.map((link, i) => (
-            <Nav.Item
+            <NavLink
+              to=""
               onClick={() => goToLink(i, link)}
               style={{ fontWeight: "bold" }}
               className={` nav-item p-0 nav-links heading-font
@@ -119,7 +135,7 @@ const Topbar = (props) => {
                   link.value
                 )}
               </span>
-            </Nav.Item>
+            </NavLink>
           ))}
 
           <button
