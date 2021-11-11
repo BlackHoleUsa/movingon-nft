@@ -104,12 +104,15 @@ const Topbar = (props) => {
 
       <Navbar.Collapse>
         <Nav className="navbar-nav ml-auto app-flex-column justify-content-center align-items-center">
-          {topBarContent.map((link, i) => (
-            <NavLink
-              to=""
-              onClick={() => goToLink(i, link)}
-              style={{ fontWeight: "bold" }}
-              className={` nav-item p-0 nav-links heading-font
+          {location?.pathname === "/butterflies" ||
+          location?.pathname === "/connect"
+            ? null
+            : topBarContent.map((link, i) => (
+                <NavLink
+                  to=""
+                  onClick={() => goToLink(i, link)}
+                  style={{ fontWeight: "bold" }}
+                  className={` nav-item p-0 nav-links heading-font
                                 ${
                                   currentState.toLowerCase() ===
                                   link.value.toLowerCase()
@@ -117,26 +120,29 @@ const Topbar = (props) => {
                                     : "inactive-link"
                                 } 
                                 `}
-              key={i}
-            >
-              <span
-                className={scroll || showMenu ? "text-black" : "text-black"}
-              >
-                {link.sectionId === "buyNft-section" ? (
-                  <Link to={`/${Routes.connect}`} style={{ color: "black" }}>
-                    {/* check to go on Dashboard */}
-                  </Link>
-                ) : link.sectionId === "dashboard-section" &&
-                  clientAddress === state?.address[0] ? (
-                  <Link to={`/${Routes.dashboard}`}>
-                    <spam style={{ color: "black" }}>Dashboard</spam>
-                  </Link>
-                ) : (
-                  link.value
-                )}
-              </span>
-            </NavLink>
-          ))}
+                  key={i}
+                >
+                  <span
+                    className={scroll || showMenu ? "text-black" : "text-black"}
+                  >
+                    {link.sectionId === "buyNft-section" ? (
+                      <Link
+                        to={`/${Routes.connect}`}
+                        style={{ color: "black" }}
+                      >
+                        {/* check to go on Dashboard */}
+                      </Link>
+                    ) : link.sectionId === "dashboard-section" &&
+                      clientAddress === state?.address[0] ? (
+                      <Link to={`/${Routes.dashboard}`}>
+                        <spam style={{ color: "black" }}>Dashboard</spam>
+                      </Link>
+                    ) : (
+                      link.value
+                    )}
+                  </span>
+                </NavLink>
+              ))}
 
           <button
             className="connect-wallet pb-0 gradient-apply border-0 connect-meta-mask"
