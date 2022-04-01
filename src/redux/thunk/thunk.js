@@ -15,9 +15,9 @@ export const checkAlreadyConnectedMetaMask = (currentConnection) => async dispat
   
   if(window.web3){
 
-    window.web3 = new Web3(window.web3.currentProvider);
+    window.web3 = new Web3(window.ethereum);
 
-    if (window.web3.currentProvider.isMetaMask === true){
+    if (window.ethereum.isMetaMask){
 
       await window.web3.eth.getAccounts((error, accounts) => {
         if (accounts?.length) {
@@ -45,11 +45,21 @@ export const checkAlreadyConnectedMetaMask = (currentConnection) => async dispat
 
 // meta mask connection
 export const connectMetaMask = () => async dispatch => {
-    if (window.ethereum) {
-        window.web3 = new Web3(window.ethereum);
-        
+    if (window.ethereum && window.ethereum.isMetaMask) {
+        //window.web3 = new Web3(window.ethereum);
+        let provider = window.ethereum;
+// edge case if MM and CBW are both installed
+if (window.ethereum.providers?.length) {
+  window.ethereum.providers.forEach(async (p) => {
+    if (p.isMetaMask) provider = p;
+  });
+}
+await provider.request({
+  method: "eth_requestAccounts",
+  params: [],
+});
         try {
-          await window.ethereum.enable();
+          //await window.ethereum.enable();
           console.log(window.web3);
           console.log(window.ethereum);
           updateAddress(dispatch);

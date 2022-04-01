@@ -25,6 +25,8 @@ import {
 
 const Connect = (props) => {
   const [showModal, setShowModal] = useState(false);
+  const [spinner, setSpinner] = useState(false);
+  const [disableBuy, setDisableBuy] = useState('no');
   const [totalMovingOnPrice, setTotalMovingOnPrice] = useState(0);
   let [showPdf, setShowPdf] = useState("no");
   const state = useSelector((state) => state);
@@ -59,31 +61,46 @@ const Connect = (props) => {
         SALE_CONTRACT_ABI,
         signer
       );
-
+      const id = await web3.eth.net.getId();
+      if(id === 4){
       const mvnPrice = await saleContract.mvnPrice();
+      console.log('mvnPrice is ', mvnPrice);
       const mvnP = Web3Utils.hexToNumber(mvnPrice);
       const mvnFinalPrice = Web3Utils.fromWei(`${mvnP}`, "ether");
       setTotalMovingOnPrice(mvnFinalPrice);
-      const movOn = await mvncontract.balanceOf(state?.address[0]);
+      const address = await web3.eth.getAccounts();
+      const movOn = await mvncontract.balanceOf(address[0]);
       let movBalance = parseInt(movOn._hex, 16);
       console.log(movBalance);
       movBalance >= 1 ? setShowPdf("yes") : setShowPdf("no");
+      movBalance >= 1 ? setDisableBuy("yes") : setDisableBuy("no");
+    }else{
+      alert('please connect with proper network');
     }
+  }
   };
   const checkFetchedPrice = () => {
+    setSpinner(true);
     if (totalMovingOnPrice > 0) {
       handleBuyBtn();
     } else {
+      setSpinner(false);
       alert(
         "Please Connect your Wallet first OR Check your internet connection"
       );
     }
   };
   const handleBuyBtn = async () => {
+    
     if (!state?.connection) {
       setCheckConnect("noConnect");
+      setSpinner(false);
     } else {
       setCheckConnect("connected");
+      const web3 = new Web3(Web3.givenProvider);
+      const id = await web3.eth.net.getId();
+      if(id === 4){
+
       if (state?.userBalance > totalMovingOnPrice) {
         const web3 = new Web3(Web3.givenProvider);
         const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -101,22 +118,37 @@ const Connect = (props) => {
 
         const accounts = await web3.eth.getAccounts();
 
-        const transaction = await contract
-          .buyMvn(accounts[0], { value: weiamount })
-          .then(function (txHash) {
-            console.log("Transaction sent");
-            alert("Transaction is done, NFT is saved in your Wallet");
-            showBookPdf();
-          })
-          .catch
-          //   alert("Transaction failed")
-          ();
+        
+          try{
+            const transaction = await contract.buyMvn(accounts[0], { value: weiamount });
+            if(transaction){
+              // console.log(tx);
+               const y= await transaction.wait();
+                
+                if(y){
+                  alert("Transaction is done, NFT is saved in your Wallet");
+                 setSpinner(false);
+                 //showBookPdf();
+                 window.location.reload();
+                }
+              }
+          }catch(err){
+            console.log('err is ', err);
+            setSpinner(false);
+            alert("Transaction failed");
+           
+          }
 
         // return (alert('Write the logic for buy'));
       } else {
+        setSpinner(false);
         alert("Your balance is less.");
       }
+    }else{
+      setSpinner(false);
+      alert('Please connect with proper network');
     }
+  }
   };
   const showBookPdf = () => {
     window.open(
@@ -161,8 +193,8 @@ const Connect = (props) => {
             <p className="reviewCount">30 Reviews</p>
           </Row>
           <h3 className="font-20px">{totalMovingOnPrice} ETH($ 7.99)</h3>
-          <button className="buyBtn" onClick={checkFetchedPrice}>
-            buy now
+          <button className={`buyBtn ${spinner ? 'inLoading' : ''} ${disableBuy === 'yes' ? 'hide-buy' : ''}`} onClick={checkFetchedPrice} disabled={(spinner || disableBuy === 'yes') ? true : false}>
+          {spinner ? "Transaction in progress..." : "buy now"}
           </button>
           <button
             className={`buyBtn view-pdf ${

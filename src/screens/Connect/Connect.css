@@ -56,6 +56,12 @@
     margin-left:3%;
     margin-bottom: 5%;
 }
+.connect .textDiv .hide-buy{
+    display: none;
+}
+.connect .textDiv .inLoading{
+    background: rgb(153, 3, 3);
+}
 .connect .textDiv .view-pdf{
     background: rgb(38, 172, 38);
 }
