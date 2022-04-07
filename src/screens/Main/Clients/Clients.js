@@ -29,8 +29,8 @@ const Clients = (props) => {
 
     const data = [
         { id: 0, title: 'Greta Quispe', text: 'Loved it!!!!!!!', src: Images.clients[0], comment: 'I have never finished a book in one sitting. I barely finish an episode of a favorite show on tv. However, Moving On, kept my attention! The characters are fully formed.' },
-        { id: 1, title: 'anthony', text: 'Loved it!!!!!!!', src: Images.clients[1], comment: 'I have never seen such too much interesting book. I barely finish an episode of a favorite show on tv. However, Butterfly In Production, is too much interesting!' },
-        { id: 2, title: 'Amazon', text: 'Great read, very captivating', src: Images.clients[2], comment: 'I have read Moving On book. I like it too much. It is so much interesting. All characters are interesting. I have never read such interesting book in my whole life' }
+        { id: 1, title: 'anthony', text: 'Amazing!', src: Images.clients[1], comment: 'I have never seen such too much interesting book. I barely finish an episode of a favorite show on tv. However, Butterfly In Production, is too much interesting!' },
+        { id: 2, title: 'David', text: 'Great read, very captivating', src: Images.clients[2], comment: 'I have read Moving On book. I like it too much. It is so much interesting. All characters are interesting. I have never read such interesting book in my whole life' }
     ];
 
     return(
