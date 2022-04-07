@@ -152,7 +152,7 @@ const Connect = (props) => {
   };
   const showBookPdf = () => {
     window.open(
-      "https://gateway.pinata.cloud/ipfs/Qmb5YuBxs5U5m6jtQqz5JRRy4wKFdQS2K4N238zH6ve2YU",
+      "https://booknft.mypinata.cloud/ipfs/Qmb5YuBxs5U5m6jtQqz5JRRy4wKFdQS2K4N238zH6ve2YU",
       "_blank"
     );
   };
@@ -165,6 +165,10 @@ const Connect = (props) => {
     }
 
     else */
+    useEffect(() => {
+      window.scrollTo(0, 0);
+      
+    }, []);
   return (
     <div className="app-flex-column w-100 h-100 position-relative ">
       <Topbar

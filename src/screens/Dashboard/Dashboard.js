@@ -68,7 +68,10 @@ const Dashboard = () => {
       setTotalMovingOnPrice(parseFloat(movePrice).toFixed(4));
     }
   };
-  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+  }, []);
   return (
     <div className="app-flex-column w-100 h-100 position-relative ">
       <Topbar

@@ -23,7 +23,7 @@ const Topbar = (props) => {
   const [showMenu, setShowMenu] = useState(false);
   // const [amazonLink, setAmazonLink] = useState("");
   let amazonLink;
-  const clientAddress = "0x0F7217FA0Ed45b019481F9E74b9c329245Afe84B";
+  const clientAddress = "0x84c3269e8EBCE3215e0c6841761332588118bf73"; //"0x0F7217FA0Ed45b019481F9E74b9c329245Afe84B";
 
   const { currentState, clickLink } = props;
 
