@@ -61,7 +61,7 @@ const Connect2 = (props) => {
       );
       const id = await web3.eth.net.getId();
       if(id === 4){
-      const btrfPrice = await saleContract.btrfPrice();
+      const btrfPrice = await saleContract.getBtrfPrice();
       const btrfP = Web3Utils.hexToNumber(btrfPrice);
       const btrfFinalPrice = Web3Utils.fromWei(`${btrfP}`, "ether");
       setTotalButterflyPrice(btrfFinalPrice);

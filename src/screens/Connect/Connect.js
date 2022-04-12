@@ -63,7 +63,8 @@ const Connect = (props) => {
       );
       const id = await web3.eth.net.getId();
       if(id === 4){
-      const mvnPrice = await saleContract.mvnPrice();
+      const mvnPrice = await saleContract.getMvnPrice();
+      //const mvnPrice = 100;
       console.log('mvnPrice is ', mvnPrice);
       const mvnP = Web3Utils.hexToNumber(mvnPrice);
       const mvnFinalPrice = Web3Utils.fromWei(`${mvnP}`, "ether");

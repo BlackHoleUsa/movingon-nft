@@ -51,8 +51,8 @@ const Dashboard = () => {
 
       const movingSold = await saleContract.copiesSold1(); // moving on book.
       const butterflySold = await saleContract.copiesSold2(); // butterflies in produciton book
-      const mvnPrice = await saleContract.mvnPrice();
-      const btrfPrice = await saleContract.btrfPrice();
+      const mvnPrice = await saleContract.getMvnPrice();
+      const btrfPrice = await saleContract.getBtrfPrice();
       const mvnP = Web3Utils.hexToNumber(mvnPrice);
       const btrfP = Web3Utils.hexToNumber(btrfPrice);
       const mvnFinalPrice = Web3Utils.fromWei(`${mvnP}`, 'ether');
