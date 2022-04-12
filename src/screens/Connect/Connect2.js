@@ -60,7 +60,7 @@ const Connect2 = (props) => {
         signer
       );
       const id = await web3.eth.net.getId();
-      if(id === 4){
+      if(id === 1){
       const btrfPrice = await saleContract.getBtrfPrice();
       const btrfP = Web3Utils.hexToNumber(btrfPrice);
       const btrfFinalPrice = Web3Utils.fromWei(`${btrfP}`, "ether");
@@ -68,7 +68,7 @@ const Connect2 = (props) => {
       const address = await web3.eth.getAccounts();
       const butterFly = await btrfcontract.balanceOf(address[0]);
       let bterBalance = parseInt(butterFly._hex, 16);
-      console.log(bterBalance);
+      
       bterBalance >= 1 ? setShowPdf("yes") : setShowPdf("no");
       bterBalance >= 1 ? setDisableBuy("yes") : setDisableBuy("no");
     }else{
@@ -96,7 +96,7 @@ const Connect2 = (props) => {
       setCheckConnect("connected");
       const web3 = new Web3(Web3.givenProvider);
       const id = await web3.eth.net.getId();
-      if(id === 4){
+      if(id === 1){
       console.log(totalButterflyPrice);
       if (state?.userBalance > totalButterflyPrice) {
         const web3 = new Web3(Web3.givenProvider);

@@ -48,7 +48,8 @@ const Dashboard = () => {
         SALE_CONTRACT_ABI,
         signer
       );
-
+      const id = await web3.eth.net.getId();
+      if(id === 1){
       const movingSold = await saleContract.copiesSold1(); // moving on book.
       const butterflySold = await saleContract.copiesSold2(); // butterflies in produciton book
       const mvnPrice = await saleContract.getMvnPrice();
@@ -66,7 +67,10 @@ const Dashboard = () => {
       const butterPrice = butterT * btrfFinalPrice;
       setTotalButterflyPrice(parseFloat(butterPrice).toFixed(4));
       setTotalMovingOnPrice(parseFloat(movePrice).toFixed(4));
+    }else{
+      alert('Please connect with proper network');
     }
+  }
   };
   useEffect(() => {
     window.scrollTo(0, 0);

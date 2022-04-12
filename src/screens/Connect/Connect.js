@@ -62,17 +62,18 @@ const Connect = (props) => {
         signer
       );
       const id = await web3.eth.net.getId();
-      if(id === 4){
+      if(id === 1){
       const mvnPrice = await saleContract.getMvnPrice();
       //const mvnPrice = 100;
-      console.log('mvnPrice is ', mvnPrice);
       const mvnP = Web3Utils.hexToNumber(mvnPrice);
       const mvnFinalPrice = Web3Utils.fromWei(`${mvnP}`, "ether");
       setTotalMovingOnPrice(mvnFinalPrice);
       const address = await web3.eth.getAccounts();
       const movOn = await mvncontract.balanceOf(address[0]);
+      
+      //const movOn = 102;
       let movBalance = parseInt(movOn._hex, 16);
-      console.log(movBalance);
+     
       movBalance >= 1 ? setShowPdf("yes") : setShowPdf("no");
       movBalance >= 1 ? setDisableBuy("yes") : setDisableBuy("no");
     }else{
@@ -100,7 +101,7 @@ const Connect = (props) => {
       setCheckConnect("connected");
       const web3 = new Web3(Web3.givenProvider);
       const id = await web3.eth.net.getId();
-      if(id === 4){
+      if(id === 1){
 
       if (state?.userBalance > totalMovingOnPrice) {
         const web3 = new Web3(Web3.givenProvider);
