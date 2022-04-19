@@ -13,7 +13,7 @@ const Clients = (props) => {
 
         const setCount = setInterval(() => {
             
-            if(active === 2){
+            if(active === 5){
                 setActive(active => active*0);
             } else{
                 setActive(active => active+1);
@@ -28,9 +28,12 @@ const Clients = (props) => {
     }, [active]);
 
     const data = [
-        { id: 0, title: 'Greta Quispe', text: 'Loved it!!!!!!!', src: Images.clients[0], comment: 'I have never finished a book in one sitting. I barely finish an episode of a favorite show on tv. However, Moving On, kept my attention! The characters are fully formed.' },
-        { id: 1, title: 'anthony', text: 'Amazing!', src: Images.clients[1], comment: 'I have never seen such too much interesting book. I barely finish an episode of a favorite show on tv. However, Butterfly In Production, is too much interesting!' },
-        { id: 2, title: 'David', text: 'Great read, very captivating', src: Images.clients[2], comment: 'I have read Moving On book. I like it too much. It is so much interesting. All characters are interesting. I have never read such interesting book in my whole life' }
+        { id: 0, title: 'Bedi', time: 'a day ago', text: 'Spectacular Read', src: Images.clients[0], comment: 'What an amazing author! I simply could not put this book down. Quickly becoming one of my favorite of all time.' },
+        { id: 1, title: 'Nirvana0707',time: '12 hours ago', text: 'Modern Day Catcher In The Rye', src: Images.clients[1], comment: 'I waited of all my adolescent and adult life for JD Salinger to write again, a wish that was never realized; however I have found something to fill this void, and that is this book, "Moving On" by Caban. What a wonderful coming of age tale, a story of a young man who is lost and trying to find his way in the world. Simply classic. Heartfelt storyline; you will fall in love with this character and this book.' },
+        { id: 2, title: 'Ant-A',time: '19 days ago', text: '1990`S NYC', src: Images.clients[2], comment: 'The author does a great job telling the story of a troubled teen growing up in New York City in the 1990`s showing many different sides of rising up from a checkered past and trying to reform relationships. You will want to keep reading to see what happens next!' },
+        { id: 3, title: 'GaelicSteel',time: '12 days ago', text: 'Love This Book!!', src: Images.clients[2], comment: 'This book will sweep you away, and leave you wanting more! I can`t wait to read Caban`s next book!' },
+        { id: 4, title: 'Danielle123',time: '15 days ago', text: 'Great Read From Start To Finish', src: Images.clients[2], comment: "This was truly a wonderful book by a wonderful author. It's an enjoyable read without too many complexities that allow the reader to really dig in and enjoy every page. Perfect length for a vacation read" },
+        { id: 5, title: 'DBey3',time: '16 days ago', text: 'Great Read !!!', src: Images.clients[2], comment: "This book is amazing! The author conveys such a vivid storyline. You become enticed and emotionally connected to the characters. Great read, I highly recommend this book! Looking forward to more content from this author!" }
     ];
 
     return(
@@ -49,23 +52,30 @@ const Clients = (props) => {
 
                 {
                     data?.map((item, i) => (
-                        <Col key={i} xs={12} sm={12} md={6} lg={4} xl={4} className="margin-clients-bottom">
+                        <Col key={i} xs={12} sm={12} md={6} lg={4} xl={4} className="margin-clients-bottom" style={{marginBottom: '30px'}}>
                             
-                            <div className="w-100 app-flex-column p-3" 
+                            <div className="w-100 app-flex-column p-3 h-100" 
                             style={{ border: i === active ? '2px solid var(--blueShade)' : '2px solid var(--whiteSmoke)' }}>
                                 
                                 <FlexRow className="w-100 align-items-center justify-content-start d-inline-flex position-relative">
                                     
-                                    <img alt="" className="rounded-circle mr-3" src={item?.src} />
+                                    {/* <img alt="" className="rounded-circle mr-3" src={item?.src} /> */}
 
                                     <div className="app-flex-column">
-                                        <span className="font-16px text-capitalize">{item?.title}</span>
-                                        <span className="font-12px">{item?.text}</span>
+                                        <span className="font-16px" style={{fontWeight: 'bold'}}>{item?.title}
+                                         {/* <span className='font-12px ml-1' style={{fontWeight:'normal'}}>{item?.time}</span> */}
+                                         </span>
+                                        <span className="font-12px" style={{fontWeight:'bolder'}}>{item?.text}</span>
                                     </div>
+                                    
 
                                     <div className="ml-auto">
-                                        <span>4.</span>
-                                        <AiFillStar className="font-16px ml-3" style={{ color: 'orange' }} />
+                                        {/* <span>4.</span> */}
+                                        <AiFillStar className="font-16px ml-1" style={{ color: 'orange' }} />
+                                        <AiFillStar className="font-16px ml-1" style={{ color: 'orange' }} />
+                                        <AiFillStar className="font-16px ml-1" style={{ color: 'orange' }} />
+                                        <AiFillStar className="font-16px ml-1" style={{ color: 'orange' }} />
+                                        <AiFillStar className="font-16px ml-1" style={{ color: 'orange' }} />
                                     </div>
 
                                 </FlexRow>
