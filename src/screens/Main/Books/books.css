@@ -30,9 +30,12 @@
     color: blue;
     cursor: pointer;
 }
+.barnes-link{
+    margin-left: 70px;
+}
 .line{
     height:2px;
-    width:98%;
+    width:75%;
     background:gray;
     margin-top:10px;
     margin-bottom: 10px;
@@ -100,16 +103,16 @@
         z-index: 100;
     }
     .movinOn-buy{
-        margin-top: 50px;
+        margin-top: 120px;
     }
     .line{
-        width:82%;
+        width:60%;
     }
 }
 @media screen and (min-width: 375px) and (max-width: 591px) {
     .book-buy-links{
-        width:100%;
-        margin-left:0%;
+        width:60%;
+        margin-left:15%;
     }
     .book-name-right{
         text-align: right;
@@ -167,7 +170,13 @@
         margin-left: 0px;
     }
     .right-book{
-        margin-top: 40px;
+        margin-top: 80px;
         padding-bottom: 20px;
+    }
+    .barnes-link{
+        margin-left: 30px;
+    }
+    .line{
+        width: 95%;
     }
 }

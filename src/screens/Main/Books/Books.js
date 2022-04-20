@@ -25,6 +25,20 @@ const Books = (props) => {
       );
     }
   };
+  const goToBarnes = (name) => {
+    if (name === "movingOn") {
+      // replace link with client specific link
+      window.open(
+        "https://www.barnesandnoble.com/w/moving-on-jl-caban/1138014544",
+        "_blank"
+      );
+    } else {
+      window.open(
+        "https://www.barnesandnoble.com/w/butterflies-in-production-jl-caban/1140765071",
+        "_blank"
+      );
+    }
+  };
   return (
     <SectionContainer
       className="bg-white text-black books-class"
@@ -53,7 +67,14 @@ const Books = (props) => {
           </div>
           <img alt="" width="100%" src={book2} style={{ marginTop: "-14%" }} />
           <div className="book-buy-links">
-            <spam className="book-name">Butterflies in Production</spam>
+            <spam className="book-name" style={{fontWeight: 'bold'}}>Butterflies in Production</spam>
+            <div className="line left-line"></div>
+            <Link to={`/${Routes.butterflies}`} style={{ color: "black" }}>
+              <spam className="">
+                Buy book NFT
+                <img alt="" width="10px" src={arrow} />
+              </spam>
+            </Link>
             <div className="line left-line"></div>
             <spam
               className="book-name amazon-link"
@@ -61,12 +82,14 @@ const Books = (props) => {
             >
               Buy book on Amazon <img alt="" width="10px" src={arrow} />
             </spam>
-            <Link to={`/${Routes.butterflies}`} style={{ color: "black" }}>
-              <spam className="book-name-right">
-                Buy Book NFT
-                <img alt="" width="10px" src={arrow} />
-              </spam>
-            </Link>
+            
+            <div className="line left-line"></div>
+            <spam
+              className="book-name amazon-link" style={{}}
+              onClick={() => goToBarnes("butterflyInProduction")}
+            >
+              Buy book on Barnes & Noble <img alt="" width="10px" src={arrow} />
+            </spam>
           </div>
         </Col>
         <Col xs={12} sm={12} md={6} lg={6} xl={6} className="px-4 movinOn-buy">
@@ -97,19 +120,28 @@ const Books = (props) => {
             className="book-buy-links right-links"
             style={{ marginTop: "-16%" }}
           >
-            <spam className="book-name-rightSection">Moving On</spam>
-            <div className="line"></div>
+            <spam className="book-name-rightSection" style={{fontWeight: 'bold'}}>Moving On</spam>
+            <div className="line left-line"></div>
+            <Link to={`/${Routes.connect}`} style={{ color: "black" }}>
+              <spam className="">
+                Buy book NFT <img alt="" width="10px" src={arrow} />
+              </spam>
+            </Link>
+            <div className="line left-line"></div>
             <spam
               className="book-name amazon-link"
               onClick={() => goToLink("movingOn")}
             >
               Buy book on Amazon <img alt="" width="10px" src={arrow} />
             </spam>
-            <Link to={`/${Routes.connect}`} style={{ color: "black" }}>
-              <spam className="book-name-right">
-                Buy Book NFT <img alt="" width="10px" src={arrow} />
-              </spam>
-            </Link>
+            
+            <div className="line left-line"></div>
+            <spam
+              className="book-name amazon-link"
+              onClick={() => goToBarnes("movingOn")}
+            >
+              Buy book on Barnes & Noble <img alt="" width="10px" src={arrow} />
+            </spam>
           </div>
         </Col>
       </Row>
