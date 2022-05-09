@@ -93,7 +93,7 @@ const Topbar = (props) => {
           className="text-uppercase font-28px text-black mr-4"
           style={{ fontStyle: "italic", fontFamily: "Oswald" }}
         >
-          <img src={Images.logo} alt="" />
+          <img src={Images.logo} alt="" width="100px"/>
         </span>
       </NavLink>
 

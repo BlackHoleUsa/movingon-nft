@@ -2,10 +2,12 @@ import React from 'react';
 import './Footer.css';
 import { SectionContainer } from 'components/SectionContainer/SectionContainer';
 import { FlexRow } from 'components/FlexRow/FlexRow';
-import { FiFacebook, FiTwitter, FiLinkedin } from 'react-icons/fi';
+import { FiFacebook, FiTwitter, FiLinkedin, FiInstagram } from 'react-icons/fi';
 
 const Footer = (props) => {
-
+    const goToLink = (link) => {
+        window.open(link, "_blank")?.focus();
+      };
     return(
 
         <SectionContainer className="bg-white text-black">
@@ -22,9 +24,9 @@ const Footer = (props) => {
 
             <FlexRow className="w-100 align-items-center d-inline-flex" 
             style={{ justifyContent: 'center' }}>
-                {//<FiFacebook className="font-18px mr-3 cursor-pointer-sort" />
-                //<FiTwitter className="font-18px mr-3 cursor-pointer-sort" />
-                /*<FiLinkedin className="font-18px cursor-pointer-sort" />*/}
+                <FiFacebook className="font-18px mr-3 cursor-pointer-sort" onClick={() => goToLink("https://www.facebook.com/JLCaban1972/")}/>
+                <FiInstagram className="font-18px mr-3 cursor-pointer-sort" onClick={() => goToLink("https://www.instagram.com/invites/contact/?i=8y6ueyoqtnje&utm_content=lejp22s")}/>
+                
             </FlexRow>
 
             <hr className="my-3 bg-black rounded w-75 mx-auto" />

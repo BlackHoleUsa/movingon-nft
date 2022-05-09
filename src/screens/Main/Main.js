@@ -14,6 +14,7 @@ import History from './History/History';
 import Chapters from './Chapters/Chapters';
 import Clients from './Clients/Clients';
 import Header from './Header/Header';
+import Coffee from './Coffee/Coffee';
 
 const Main = () => {
 
@@ -56,6 +57,7 @@ const Main = () => {
                 
                 <Header />
                 <Books />
+                <Coffee />
                 <About />
                 <ChooseBook />
                 <Companies />

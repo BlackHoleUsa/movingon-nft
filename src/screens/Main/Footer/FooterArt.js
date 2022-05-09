@@ -41,6 +41,7 @@ const FooterArt = (props) => {
                 <Col xs={12} sm={12} md={6} lg={5} xl={5}>
 
                     <span className="font-25px d-block">Let's Talk</span>
+                    <span className="font-14px d-block">rarejewelsliterary@yahoo.com</span>
                     <span className="font-14px text-uppercase d-block">DON'T MISS OUR FUTURE UPDATES!</span>
 
                 </Col>

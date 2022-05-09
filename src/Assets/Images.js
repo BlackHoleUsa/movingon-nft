@@ -1,5 +1,6 @@
 export const Images = {
   author: require("./images/author.png").default,
+  coffee: require("./images/coffee.png").default,
   city: require("./images/city.png").default,
   headerBook: require("./images/header-book.png").default,
 
