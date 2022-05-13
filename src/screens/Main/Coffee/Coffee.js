@@ -9,7 +9,7 @@ const Coffee = (props) => {
     <SectionContainer
       className="bg-white text-black"
       style={{ marginTop: "150px" }}
-      id="about-section"
+      id="coffee-section"
     >
       <Row className="m-0 p-0 mt-5">
         <Col xs={12} sm={12} md={6} lg={6} xl={6}>

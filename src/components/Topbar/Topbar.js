@@ -78,7 +78,12 @@ const Topbar = (props) => {
       clickLink({ value: link.value.toLowerCase(), sectionId: link.sectionId });
     }
   };
-
+  const goToHelp = () => {
+    window.open(
+      "https://booknft.mypinata.cloud/ipfs/QmNXsspxYRhtFNd2vUL4eHcUQ2cdPqgy4LhthzsNTHeKT2",
+      "_blank"
+    );
+  }
   return (
     <Navbar
       collapseOnSelect
@@ -93,7 +98,7 @@ const Topbar = (props) => {
           className="text-uppercase font-28px text-black mr-4"
           style={{ fontStyle: "italic", fontFamily: "Oswald" }}
         >
-          <img src={Images.logo} alt="" width="100px"/>
+          <img src={Images.logo} alt="" width="70px"/>
         </span>
       </NavLink>
 
@@ -125,6 +130,7 @@ const Topbar = (props) => {
                   <span
                     className={scroll || showMenu ? "text-black" : "text-black"}
                   >
+                    
                     {link.sectionId === "buyNft-section" ? (
                       <Link
                         to={`/${Routes.connect}`}
@@ -137,12 +143,17 @@ const Topbar = (props) => {
                       <Link to={`/${Routes.dashboard}`}>
                         <spam style={{ color: "black" }}>Dashboard</spam>
                       </Link>
-                    ) : (
-                      link.value
-                    )}
+                    ) : link.sectionId === "help-section" ? (
+                    <Link onClick={goToHelp}>
+                      <spam style={{ color: "black" }}>Help</spam>
+                    </Link>
+                  ) : (
+                    link.value
+                  )}
                   </span>
                 </NavLink>
               ))}
+             
 
           <button
             className="connect-wallet pb-0 gradient-apply border-0 connect-meta-mask"

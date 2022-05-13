@@ -25,14 +25,14 @@ const Footer = (props) => {
             <FlexRow className="w-100 align-items-center d-inline-flex" 
             style={{ justifyContent: 'center' }}>
                 <FiFacebook className="font-18px mr-3 cursor-pointer-sort" onClick={() => goToLink("https://www.facebook.com/JLCaban1972/")}/>
-                <FiInstagram className="font-18px mr-3 cursor-pointer-sort" onClick={() => goToLink("https://www.instagram.com/invites/contact/?i=8y6ueyoqtnje&utm_content=lejp22s")}/>
+                <FiInstagram className="font-18px mr-3 cursor-pointer-sort" onClick={() => goToLink("https://www.instagram.com/jlcaban/?igshid=YmMyMTA2M2Y=")}/>
                 
             </FlexRow>
 
             <hr className="my-3 bg-black rounded w-75 mx-auto" />
 
             <span className="font-12px d-block text-center">
-                COPYRIGHT 2021 - TERMS & CONDITIONS  PRIVACY POLICY
+                COPYRIGHT 2022 - TERMS & CONDITIONS  PRIVACY POLICY
             </span>
 
         </SectionContainer>

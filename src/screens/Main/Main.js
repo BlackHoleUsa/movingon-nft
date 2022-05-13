@@ -29,7 +29,7 @@ const Main = () => {
     }, []);
 
     const goToSection = (sectionRef) => {
-        if(sectionRef === 'buyNft-section' || sectionRef === 'dashboard-section'){
+        if(sectionRef === 'buyNft-section' || sectionRef === 'dashboard-section' || sectionRef === 'help-section'){
 
         }else{
             document.getElementById(sectionRef).scrollIntoView({ behavior: 'smooth' });
