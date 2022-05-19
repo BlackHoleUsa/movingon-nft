@@ -27,8 +27,8 @@ const Coffee = (props) => {
             <img alt="" src={Images.pat} />
           </FlexRow> */}
 
-          <span className="font-36px mb-2 mt-4 d-block">Coffee Table</span>
-
+          <span className="font-36px mb-2 mt-4 d-block">Coffee Table Featuring</span>
+          <span className="font-20px mb-2 d-block">“Book of Darku,” by Dar Dowling</span>
           <span className="font-14px mb-3 d-block text-justify">
           {/* </span>
 
