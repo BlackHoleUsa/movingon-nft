@@ -14,18 +14,18 @@ const Footer = (props) => {
             
             {/*<span className="d-block text-uppercase mb-4 text-center font-30px">logo</span>*/}
 
-            {/* <span className="d-block mb-3 text-center font-25px">
-                Change The Way Of Your Life Towards A Positive World
+             <span className="d-block mb-3 text-center font-25px">
+             Follow Us On
             </span>
 
-            <span className="d-block mb-3 text-center font-16px">
+            {/*<span className="d-block mb-3 text-center font-16px">
                 I folded the letter and put it back in my jean jacket pocket. I thought about it for awhile, standing on the cheese line at Penn Station, waiting to buy a train ticket, but honestly it was the view of the shrinking Manhattan skyline, as the Amtrak Train traveled southbound to Ray Charles’ sweet and clear as moonlight.
             </span> */}
 
             <FlexRow className="w-100 align-items-center d-inline-flex" 
             style={{ justifyContent: 'center' }}>
-                <FiFacebook className="font-28px mr-3 cursor-pointer-sort" onClick={() => goToLink("https://www.facebook.com/JLCaban1972/")}/>
-                <FiInstagram className="font-28px mr-3 cursor-pointer-sort" onClick={() => goToLink("https://www.instagram.com/jlcaban/?igshid=YmMyMTA2M2Y=")}/>
+                <FiFacebook className="font-36px mr-3 cursor-pointer-sort" onClick={() => goToLink("https://www.facebook.com/JLCaban1972/")}/>
+                <FiInstagram className="font-36px mr-3 cursor-pointer-sort" onClick={() => goToLink("https://www.instagram.com/jlcaban/?igshid=YmMyMTA2M2Y=")}/>
                 
             </FlexRow>
 
